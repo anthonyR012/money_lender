@@ -1,4 +1,4 @@
-package com.anthony.moneylender.data.model;
+package com.anthony.moneylender.login.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

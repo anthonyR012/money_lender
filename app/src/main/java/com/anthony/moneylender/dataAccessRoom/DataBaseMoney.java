@@ -14,8 +14,7 @@ import com.anthony.moneylender.dataAccessRoom.Entidades.Cliente;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Historial;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
 
-@Database
-        (entities = {Cliente.class, Administrador.class, Prestamos.class, Historial.class},
+@Database(entities = {Cliente.class, Administrador.class, Prestamos.class, Historial.class},
                 version = 1)
 public abstract class DataBaseMoney extends RoomDatabase {
 
@@ -30,7 +29,11 @@ public abstract class DataBaseMoney extends RoomDatabase {
                 }
             }
         }
+
         return INSTANCE;
+    }
+    public static void destroyInstance() {
+        INSTANCE = null;
     }
 
 }

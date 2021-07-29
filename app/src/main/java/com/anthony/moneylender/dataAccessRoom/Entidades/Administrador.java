@@ -1,5 +1,6 @@
 package com.anthony.moneylender.dataAccessRoom.Entidades;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -9,7 +10,8 @@ import com.anthony.moneylender.dataAccessRoom.Constantes.Constantes;
 @Entity(tableName = Constantes.TABLA_ADMINISTRADOR)
 public class Administrador {
     @PrimaryKey
-    private String id_administrador_pk;
+    @NonNull
+    public String id_administrador_pk;
     @ColumnInfo(name = Constantes.CAMPO_NOMBRE_ADMINISTRADOR)
     private String nombre_administrador;
     @ColumnInfo(name = Constantes.CAMPO_APELLIDO_ADMINISTRADOR)

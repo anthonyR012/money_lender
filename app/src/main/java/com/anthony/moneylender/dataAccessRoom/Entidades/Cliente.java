@@ -1,5 +1,6 @@
 package com.anthony.moneylender.dataAccessRoom.Entidades;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -9,7 +10,8 @@ import com.anthony.moneylender.dataAccessRoom.Constantes.Constantes;
 @Entity(tableName = Constantes.TABLA_CLIENTES)
 public class Cliente {
     @PrimaryKey
-    private String id_cliente_pk;
+    @NonNull
+    public String id_cliente_pk;
     @ColumnInfo(name = Constantes.CAMPO_NOMBRE_CLIENTE)
     private String nombre_cliente;
     @ColumnInfo(name = Constantes.CAMPO_APELLIDO_CLIENTE)
@@ -20,6 +22,15 @@ public class Cliente {
     private String telefono_cliente;
     @ColumnInfo(name = Constantes.CAMPO_CLIENTE_ADMINISTRADO_FK)
     private String cliente_administrado;
+
+    public Cliente(String id_cliente_pk, String nombre_cliente, String apellido_cliente, String direccion_cliente, String telefono_cliente, String cliente_administrado) {
+        this.id_cliente_pk = id_cliente_pk;
+        this.nombre_cliente = nombre_cliente;
+        this.apellido_cliente = apellido_cliente;
+        this.direccion_cliente = direccion_cliente;
+        this.telefono_cliente = telefono_cliente;
+        this.cliente_administrado = cliente_administrado;
+    }
 
     public String getId_cliente() {
         return id_cliente_pk;

@@ -1,6 +1,7 @@
 package com.anthony.moneylender.dataAccessRoom.Entidades;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -9,8 +10,10 @@ import com.anthony.moneylender.dataAccessRoom.Constantes.Constantes;
 
 @Entity(tableName = Constantes.TABLA_HISTORIAL)
 public class Historial {
+
     @PrimaryKey
-    private String id_historial_pk;
+    @NonNull
+    public String id_historial_pk;
     @ColumnInfo(name = Constantes.CAMPO_TOTAL_PRESTAMO)
     private double total_prestamo_historial;
     @ColumnInfo(name = Constantes.CAMPO_CLIENTE_HISTORIAL_FK)

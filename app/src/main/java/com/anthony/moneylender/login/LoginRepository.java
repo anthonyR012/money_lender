@@ -1,6 +1,9 @@
-package com.anthony.moneylender.data;
+package com.anthony.moneylender.login;
 
-import com.anthony.moneylender.data.model.LoggedInUser;
+import android.util.Log;
+
+import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
+import com.anthony.moneylender.login.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -43,9 +46,10 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
-    public Result<LoggedInUser> login(String username, String password) {
+    public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
         // handle login
-        Result<LoggedInUser> result = dataSource.login(username, password);
+        Result<LoggedInUser> result = dataSource.login(username, password,db);
+        Log.i("Result ",""+result);
         if (result instanceof Result.Success) {
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
         }
