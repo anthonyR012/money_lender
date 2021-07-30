@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:columnCount="2"
+        app:rowCount="3"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        app:orientation="horizontal"
+        android:id="@+id/GridLayout1"
+        tools:context=".GridXMLActivity"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="155dp"
+                android:orientation="vertical"
+                >
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/comprension"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/btn_crear"
+                    style="?attr/borderlessButtonStyle"
+                    />
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="155dp"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/presupuesto"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/app_name"
+                    />
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/btn_administra"
+                    style="?attr/borderlessButtonStyle"
+                    />
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="155dp"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/usuario"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/app_name"
+                    />
+
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/btn_perfil"
+                        style="?attr/borderlessButtonStyle"
+                        />
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="155dp"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/prestamo"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+                <!-- Buttons -->
+
+                <com.google.android.material.button.MaterialButton
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/btn_prestamo" />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="155dp"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/acerca"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/btn_acerca"
+                        style="?attr/borderlessButtonStyle"
+                        />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="155dp"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/historial_medico"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/app_name"
+                    android:layout_gravity="center"
+                    />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="145dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/btn_hitorial"
+                        style="?attr/borderlessButtonStyle"
+                        />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.gridlayout.widget.GridLayout>
+</RelativeLayout>

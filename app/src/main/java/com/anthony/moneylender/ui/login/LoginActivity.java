@@ -14,20 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
-import com.anthony.moneylender.prueba;
-import com.anthony.moneylender.ui.login.LoginViewModel;
-import com.anthony.moneylender.ui.login.LoginViewModelFactory;
+import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -122,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(LoginActivity.this, prueba.class);
+        Intent intent = new Intent(LoginActivity.this, PrincipalMenu.class);
         startActivity(intent);
     }
 
