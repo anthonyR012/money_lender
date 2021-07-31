@@ -1,19 +1,10 @@
-package com.anthony.moneylender.login;
+package com.anthony.moneylender.models;
 
 import android.os.AsyncTask;
-import android.os.Build;
-import android.util.Log;
-
-import androidx.annotation.RequiresApi;
-import androidx.lifecycle.LiveData;
 
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
-import com.anthony.moneylender.login.model.LoggedInUser;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
+import com.anthony.moneylender.models.login.LoggedInUser;
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
@@ -23,9 +14,10 @@ public class LoginDataSource {
     private boolean credential,isLoggin = false;
     private LoggedInUser objectAdministrador;
     private Exception errorCredentiales;
+
     public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
             // TODO: handle loggedInUser authentication
-//            return new Result.Success<>(fakeUser);
+
                credential = verifyCredential(username,password,db);
                if(credential != false) {
                    objectAdministrador =
@@ -35,10 +27,9 @@ public class LoginDataSource {
                    return new Result.Success<>(objectAdministrador);
 
                }else{
-                   Log.i("Estado ",""+credential);
 
                    return new Result.Error( errorCredentiales = new Exception("Error logging in"));
-//                   return  new Result.Success<>(objectAdministrador);
+
                }
     }
 

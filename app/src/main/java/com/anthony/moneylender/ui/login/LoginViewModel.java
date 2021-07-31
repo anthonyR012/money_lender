@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel;
 import android.util.Patterns;
 
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
-import com.anthony.moneylender.login.LoginRepository;
-import com.anthony.moneylender.login.Result;
-import com.anthony.moneylender.login.model.LoggedInUser;
+import com.anthony.moneylender.models.LoginRepository;
+import com.anthony.moneylender.models.Result;
+import com.anthony.moneylender.models.login.LoggedInUser;
 import com.anthony.moneylender.R;
 
 public class LoginViewModel extends ViewModel {

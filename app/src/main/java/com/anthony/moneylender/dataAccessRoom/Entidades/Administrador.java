@@ -60,7 +60,4 @@ public class Administrador {
     public void setPass_administrador(String pass_administrador) {
         this.pass_administrador = pass_administrador;
     }
-
-
-
 }

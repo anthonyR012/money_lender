@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.anthony.moneylender.login.LoginDataSource;
-import com.anthony.moneylender.login.LoginRepository;
+import com.anthony.moneylender.models.LoginDataSource;
+import com.anthony.moneylender.models.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

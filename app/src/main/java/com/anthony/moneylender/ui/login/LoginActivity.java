@@ -2,6 +2,9 @@ package com.anthony.moneylender.ui.login;
 
 import android.app.Activity;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,16 +21,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
+import com.anthony.moneylender.ui.login.optiones.fragments.SingUp;
+import com.anthony.moneylender.ui.login.optiones.optiones;
 
-public class LoginActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class LoginActivity extends AppCompatActivity implements Serializable {
 
     private LoginViewModel loginViewModel;
     private DataBaseMoney db;
+    private Button loginButton;
+    private TextView txtForgotPass, txtSingUp;
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+    private Fragment fragmentSing,fragmentForgot;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +53,15 @@ public class LoginActivity extends AppCompatActivity {
         db = DataBaseMoney.getInstance(this);
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        loginButton = findViewById(R.id.login);
+        txtForgotPass = findViewById(R.id.forgotPass);
+        txtSingUp = findViewById(R.id.singUp);
+        fragmentSing = new SingUp();
+//        fragmentForgot = new SingUp();
+
+
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -69,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
-                    finish();
+
                 }
                 setResult(Activity.RESULT_OK);
 
@@ -111,17 +133,47 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString(),db);
             }
         });
+
     }
 
+
+    public void eventOnclick(View view) {
+        Intent intent = new Intent(LoginActivity.this, optiones.class);
+        Bundle bundle = new Bundle();
+
+
+        switch (view.getId()){
+            case R.id.singUp:
+                bundle.putSerializable("estado","registrar");
+                intent.putExtras(bundle);
+                finish();
+                startActivity(intent);
+                break;
+            case R.id.forgotPass:
+                bundle.putSerializable("estado","establecer");
+                intent.putExtras(bundle);
+                finish();
+                startActivity(intent);
+                break;
+        }
+
+
+    }
+
+
+
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
+//        String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(LoginActivity.this, PrincipalMenu.class);
+        finish();
         startActivity(intent);
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+
 }
