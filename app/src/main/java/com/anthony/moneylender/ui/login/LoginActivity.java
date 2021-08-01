@@ -28,7 +28,8 @@ import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
 import com.anthony.moneylender.ui.login.optiones.fragments.SingUp;
-import com.anthony.moneylender.ui.login.optiones.optiones;
+import com.anthony.moneylender.ui.login.optiones.fragments.forgotPass;
+import com.anthony.moneylender.ui.login.optiones.Optiones;
 
 import java.io.Serializable;
 
@@ -58,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         txtForgotPass = findViewById(R.id.forgotPass);
         txtSingUp = findViewById(R.id.singUp);
         fragmentSing = new SingUp();
-//        fragmentForgot = new SingUp();
+        fragmentForgot = new forgotPass();
 
 
 
@@ -138,7 +139,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
 
 
     public void eventOnclick(View view) {
-        Intent intent = new Intent(LoginActivity.this, optiones.class);
+        Intent intent = new Intent(LoginActivity.this, Optiones.class);
         Bundle bundle = new Bundle();
 
 
@@ -146,8 +147,8 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
             case R.id.singUp:
                 bundle.putSerializable("estado","registrar");
                 intent.putExtras(bundle);
-                finish();
                 startActivity(intent);
+                finish();
                 break;
             case R.id.forgotPass:
                 bundle.putSerializable("estado","establecer");
