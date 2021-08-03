@@ -19,20 +19,20 @@ import java.util.regex.Pattern;
 
 public class singViewModel extends ViewModel {
     private MutableLiveData<Integer> registroFormState = new MutableLiveData<>();
-    private final String keyEncription = "wewe";
     private SecurityPass encriptacion;
-    private String datoEncriptado;
+    private byte[] datoEncriptado;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void insertData(Administrador administrador, DataBaseMoney db){
-        verifyState(administrador,db);
+    public void insertData(Administrador administrador, DataBaseMoney db, String passSinCifrado){
+        verifyState(administrador,db,passSinCifrado);
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void verifyState(Administrador administrador, DataBaseMoney db){
+    private void verifyState(Administrador administrador, DataBaseMoney db, String passSinCifrado){
         encriptacion = new SecurityPass();
-        datoEncriptado = encriptacion.encriptar(keyEncription,administrador.getPass_administrador());
-        Log.i("dato encriptado","este "+datoEncriptado.toString());
+        datoEncriptado = encriptacion.cifra(passSinCifrado);
+
         administrador.setPass_administrador(datoEncriptado);
         AsyncTask.execute(new Runnable() {
             @Override
@@ -72,8 +72,6 @@ public class singViewModel extends ViewModel {
             registroFormState.setValue(R.string.valid_action);
         }
 
-
     }
-
 
 }

@@ -19,9 +19,9 @@ public class Administrador {
     @ColumnInfo(name = Constantes.CAMPO_EMAIL_ADMINISTRADOR)
     private String email_administrador;
     @ColumnInfo(name = Constantes.CAMPO_PASS_ADMINISTRADOR)
-    private String pass_administrador;
+    private byte[] pass_administrador;
 
-    public Administrador(@NonNull String id_administrador_pk, String nombre_administrador, String apellido_administrador, String email_administrador, String pass_administrador) {
+    public Administrador(@NonNull String id_administrador_pk, String nombre_administrador, String apellido_administrador, String email_administrador, byte[] pass_administrador) {
         this.id_administrador_pk = id_administrador_pk;
         this.nombre_administrador = nombre_administrador;
         this.apellido_administrador = apellido_administrador;
@@ -63,11 +63,11 @@ public class Administrador {
         this.email_administrador = email_administrador;
     }
 
-    public String getPass_administrador() {
+    public byte[] getPass_administrador() {
         return pass_administrador;
     }
 
-    public void setPass_administrador(String pass_administrador) {
+    public void setPass_administrador(byte[] pass_administrador) {
         this.pass_administrador = pass_administrador;
     }
 }

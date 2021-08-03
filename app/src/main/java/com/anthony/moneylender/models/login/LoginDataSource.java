@@ -20,7 +20,7 @@ public class LoginDataSource {
     private Exception errorCredentiales;
     private SecurityPass desencriptar;
     private String datoDesencriptado;
-    private final String keyEncription = "wewe";
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
@@ -60,10 +60,10 @@ public class LoginDataSource {
         if (administrador != null) {
             desencriptar = new SecurityPass();
 
-            datoDesencriptado = desencriptar.desencriptar(keyEncription,password);
+            datoDesencriptado = desencriptar.descifra(administrador.getPass_administrador());
 
 
-           if (datoDesencriptado.equals(administrador.getPass_administrador())){
+           if (datoDesencriptado.equals(password)){
                isLoggin = true;
            }
         }

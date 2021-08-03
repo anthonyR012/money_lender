@@ -135,9 +135,9 @@ public class SingUp extends Fragment {
     private void registraUser() {
 
         createAdministrador = new Administrador(id.getText().toString(),nombre.getText().toString(),
-                apellido.getText().toString(),email.getText().toString(),pass.getText().toString());
+                apellido.getText().toString(),email.getText().toString(),null);
 
-        viewModel.insertData(createAdministrador,db);
+        viewModel.insertData(createAdministrador,db,pass.getText().toString());
 
     }
 
