@@ -1,4 +1,4 @@
-package com.anthony.moneylender.models;
+package com.anthony.moneylender.models.login;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.

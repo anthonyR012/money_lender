@@ -2,6 +2,7 @@ package com.anthony.moneylender.ui.login;
 
 import android.app.Activity;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -9,6 +10,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -38,11 +40,10 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
     private LoginViewModel loginViewModel;
     private DataBaseMoney db;
     private Button loginButton;
-    private TextView txtForgotPass, txtSingUp;
-    FragmentManager fragmentManager = getSupportFragmentManager();
-    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-    private Fragment fragmentSing,fragmentForgot;
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,10 +57,8 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         final EditText passwordEditText = findViewById(R.id.password);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         loginButton = findViewById(R.id.login);
-        txtForgotPass = findViewById(R.id.forgotPass);
-        txtSingUp = findViewById(R.id.singUp);
-        fragmentSing = new SingUp();
-        fragmentForgot = new forgotPass();
+
+
 
 
 
@@ -127,11 +126,16 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString(),db);
+                try {
+                    loginViewModel.login(usernameEditText.getText().toString(),
+                            passwordEditText.getText().toString(),db);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

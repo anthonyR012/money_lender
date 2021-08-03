@@ -1,6 +1,5 @@
 package com.anthony.moneylender.dataAccessRoom;
 
-import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -8,8 +7,6 @@ import androidx.room.Transaction;
 
 import com.anthony.moneylender.dataAccessRoom.Constantes.Constantes;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
-import com.anthony.moneylender.dataAccessRoom.Entidades.Cliente;
-import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.AdministraCliente;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.ClientePrestamos;
 
 import java.util.List;
@@ -17,13 +14,15 @@ import java.util.List;
 @Dao
 public interface InterfaceDao {
     @Transaction
-    @Query("SELECT * FROM "+ Constantes.TABLA_CLIENTES)
+    @Query("SELECT * FROM clientes")
     public List<ClientePrestamos> getPrestamosUser();
 
     @Insert
-    void insertAll(Cliente cliente);
+    void insertAdministrator(Administrador administrador);
 
-    @Query("SELECT * FROM administrador WHERE email_administrador = :email" +
-            " and pass_administrador = :pass ")
-    public Administrador getAdministrador(String email,String pass);
+    @Query("SELECT COUNT(*) FROM administrador where id_administrador_pk = :code")
+    public int get(String code);
+
+    @Query("SELECT * FROM administrador WHERE email_administrador = :email")
+    public Administrador getAdministrador(String email);
 }

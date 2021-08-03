@@ -1,7 +1,10 @@
-package com.anthony.moneylender.models;
+package com.anthony.moneylender.models.login;
+
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
-import com.anthony.moneylender.models.login.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -44,6 +47,7 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
         // handle login
         Result<LoggedInUser> result = dataSource.login(username, password,db);

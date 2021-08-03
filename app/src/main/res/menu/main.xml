@@ -2,13 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/login"
+        android:orderInCategory="100"
+        android:title="@string/action_sign_in"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/registrarUser"
         android:orderInCategory="100"
         android:title="@string/SingUp"
         app:showAsAction="never" />
     <item
-        android:id="@+id/forgot"
+        android:id="@+id/restablecerPass"
         android:orderInCategory="100"
+
         android:title="@string/forgot"
         app:showAsAction="never" />
 </menu>

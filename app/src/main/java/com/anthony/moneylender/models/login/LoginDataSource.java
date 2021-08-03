@@ -1,10 +1,14 @@
-package com.anthony.moneylender.models;
+package com.anthony.moneylender.models.login;
 
 import android.os.AsyncTask;
+import android.os.Build;
+import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
-import com.anthony.moneylender.models.login.LoggedInUser;
+import com.anthony.moneylender.implement.SecurityPass;
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
@@ -14,7 +18,11 @@ public class LoginDataSource {
     private boolean credential,isLoggin = false;
     private LoggedInUser objectAdministrador;
     private Exception errorCredentiales;
+    private SecurityPass desencriptar;
+    private String datoDesencriptado;
+    private final String keyEncription = "wewe";
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
             // TODO: handle loggedInUser authentication
 
@@ -33,16 +41,14 @@ public class LoginDataSource {
                }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private boolean verifyCredential(String username, String password, DataBaseMoney db) {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
 
-                administrador = db.interfaceDao().getAdministrador(username, password);
-                if (administrador != null) {
+                administrador = db.interfaceDao().getAdministrador(username);
 
-                    isLoggin = true;
-                }
             }
         });
         try {
@@ -50,6 +56,16 @@ public class LoginDataSource {
 
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        if (administrador != null) {
+            desencriptar = new SecurityPass();
+
+            datoDesencriptado = desencriptar.desencriptar(keyEncription,password);
+
+
+           if (datoDesencriptado.equals(administrador.getPass_administrador())){
+               isLoggin = true;
+           }
         }
         return isLoggin;
     }

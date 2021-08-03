@@ -1,14 +1,16 @@
 package com.anthony.moneylender.ui.login;
 
+import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import android.os.Build;
 import android.util.Patterns;
 
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
-import com.anthony.moneylender.models.LoginRepository;
-import com.anthony.moneylender.models.Result;
+import com.anthony.moneylender.models.login.LoginRepository;
+import com.anthony.moneylender.models.login.Result;
 import com.anthony.moneylender.models.login.LoggedInUser;
 import com.anthony.moneylender.R;
 
@@ -30,6 +32,7 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void login(String username, String password, DataBaseMoney db) {
         // can be launched in a separate asynchronous job
         Result<LoggedInUser> result = loginRepository.login(username, password,db);
@@ -68,4 +71,6 @@ public class LoginViewModel extends ViewModel {
     private boolean isPasswordValid(String password) {
         return password != null && password.trim().length() > 5;
     }
+
+
 }
