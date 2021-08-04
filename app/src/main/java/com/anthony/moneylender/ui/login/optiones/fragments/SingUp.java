@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
 import com.anthony.moneylender.models.login.optiones.singViewModel;
 import com.anthony.moneylender.ui.login.LoginActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 
 /**
@@ -36,7 +38,8 @@ public class SingUp extends Fragment {
     private DataBaseMoney db;
     private Administrador createAdministrador;
     private EditText id,nombre,apellido,email,pass;
-
+    private Snackbar mySnackbar;
+    private final int  duration = 5;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,7 +71,7 @@ public class SingUp extends Fragment {
             @Override
             public void onClick(View v) {
 
-                registraUser();
+                registraUser(root);
             }
         });
 
@@ -77,6 +80,12 @@ public class SingUp extends Fragment {
             public void onChanged(@Nullable Integer stateRegistro) {
                 if (stateRegistro == null) {
                     return;
+                }
+                if (stateRegistro.equals(R.string.id_exist)) {
+                    id.setError(getString(stateRegistro));
+                }
+                if (stateRegistro.equals(R.string.email_exist)) {
+                    email.setError(getString(stateRegistro));
                 }
                 if (stateRegistro.equals(R.string.id_invalid)) {
                     id.setError(getString(stateRegistro));
@@ -95,6 +104,7 @@ public class SingUp extends Fragment {
                 }
                 if(stateRegistro.equals(R.string.valid_action)){
                     root.findViewById(R.id.btn_registrar).setEnabled(true);
+
                 }
 
             }
@@ -118,7 +128,7 @@ public class SingUp extends Fragment {
             public void afterTextChanged(Editable s) {
 
                 viewModel.loginDataChanged(id.getText().toString(),nombre.getText().toString(),apellido
-                        .getText().toString(),email.getText().toString(),pass.getText().toString());
+                        .getText().toString(),email.getText().toString(),pass.getText().toString(),db);
             }
         };
         id.addTextChangedListener(afterTextChangedListener);
@@ -127,18 +137,30 @@ public class SingUp extends Fragment {
         email.addTextChangedListener(afterTextChangedListener);
         pass.addTextChangedListener(afterTextChangedListener);
 
+
+
         return root;
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void registraUser() {
+
+    private void registraUser(View root) {
 
         createAdministrador = new Administrador(id.getText().toString(),nombre.getText().toString(),
                 apellido.getText().toString(),email.getText().toString(),null);
 
-        viewModel.insertData(createAdministrador,db,pass.getText().toString());
+        String value = viewModel.insertData(createAdministrador,db,pass.getText().toString());
+        mySnackbar = Snackbar.make(root,value, Snackbar.LENGTH_LONG);
+        mySnackbar.show();
+        cleanEdiText();
+    }
 
+    private void cleanEdiText() {
+        id.setText("");
+        nombre.setText("");
+        apellido.setText("");
+        email.setText("");
+        pass.setText("");
     }
 
 

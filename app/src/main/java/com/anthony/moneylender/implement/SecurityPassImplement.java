@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-public class SecurityPass {
+public class SecurityPassImplement {
 
     private final String sha = "SHA";
     private final String estandar = "UTF-8";

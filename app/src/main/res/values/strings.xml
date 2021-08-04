@@ -10,6 +10,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="id_invalid">"Id invalido"</string>
+    <string name="id_exist">"Id no disponible"</string>
+    <string name="email_exist">"Email no disponible"</string>
     <string name="nombre_invalid">"Nombre obligatorio"</string>
     <string name="apellido_invalid">"Apellido obligatorio"</string>
     <string name="email_invalid">"Email invalido"</string>

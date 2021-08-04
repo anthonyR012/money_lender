@@ -32,7 +32,7 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     public void login(String username, String password, DataBaseMoney db) {
         // can be launched in a separate asynchronous job
         Result<LoggedInUser> result = loginRepository.login(username, password,db);

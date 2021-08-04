@@ -2,13 +2,12 @@ package com.anthony.moneylender.models.login;
 
 import android.os.AsyncTask;
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
-import com.anthony.moneylender.implement.SecurityPass;
+import com.anthony.moneylender.implement.SecurityPassImplement;
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
@@ -18,11 +17,11 @@ public class LoginDataSource {
     private boolean credential,isLoggin = false;
     private LoggedInUser objectAdministrador;
     private Exception errorCredentiales;
-    private SecurityPass desencriptar;
+    private SecurityPassImplement desencriptar;
     private String datoDesencriptado;
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
             // TODO: handle loggedInUser authentication
 
@@ -41,7 +40,7 @@ public class LoginDataSource {
                }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     private boolean verifyCredential(String username, String password, DataBaseMoney db) {
         AsyncTask.execute(new Runnable() {
             @Override
@@ -58,12 +57,12 @@ public class LoginDataSource {
             e.printStackTrace();
         }
         if (administrador != null) {
-            desencriptar = new SecurityPass();
+            desencriptar = new SecurityPassImplement();
 
             datoDesencriptado = desencriptar.descifra(administrador.getPass_administrador());
 
 
-           if (datoDesencriptado.equals(password)){
+           if (datoDesencriptado != null && datoDesencriptado.equals(password)){
                isLoggin = true;
            }
         }

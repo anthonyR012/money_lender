@@ -47,7 +47,7 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
         // handle login
         Result<LoggedInUser> result = dataSource.login(username, password,db);
