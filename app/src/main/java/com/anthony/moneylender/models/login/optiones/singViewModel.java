@@ -9,6 +9,7 @@ import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
 import com.anthony.moneylender.implement.SecurityPassImplement;
+import com.anthony.moneylender.implement.ThreadImplement;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,17 +20,17 @@ public class singViewModel extends ViewModel {
     private SecurityPassImplement encriptacion;
     private byte[] datoEncriptado;
     private int countId,countEmail;
-    private String dato;
+    private int dato;
+    private ThreadImplement segundoHilo;
 
-
-    public String insertData(Administrador administrador, DataBaseMoney db, String passSinCifrado){
+    public int insertData(Administrador administrador, DataBaseMoney db, String passSinCifrado){
 
         dato =verifyState(administrador,db,passSinCifrado);
         return dato;
     }
 
 
-    private String verifyState(Administrador administrador, DataBaseMoney db, String passSinCifrado){
+    private int verifyState(Administrador administrador, DataBaseMoney db, String passSinCifrado){
 
         //quitar seteado de error en los inputs
         registroFormState = null;
@@ -38,15 +39,11 @@ public class singViewModel extends ViewModel {
         datoEncriptado = encriptacion.cifra(passSinCifrado);
 
         administrador.setPass_administrador(datoEncriptado);
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
+        //ejecutar otro hilo para insertar registro
+        segundoHilo = new ThreadImplement(db,administrador);
+        segundoHilo.start();
 
-                    db.interfaceDao().insertAdministrator(administrador);
-                    dato = "Registro completo";
-
-            }
-        });
+        dato = R.string.complete_Insert;
         try {
             Thread.sleep(1000);
 
@@ -78,7 +75,6 @@ public class singViewModel extends ViewModel {
                 registroFormState.setValue(R.string.pass_invalid);
             } else {
                 registroFormState.setValue(R.string.valid_action);
-
             }
 
             if (verifyNoexistDataId(db, idUser) > 0) {

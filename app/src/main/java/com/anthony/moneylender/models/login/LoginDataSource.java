@@ -8,6 +8,7 @@ import androidx.annotation.RequiresApi;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
 import com.anthony.moneylender.implement.SecurityPassImplement;
+import com.anthony.moneylender.implement.ThreadImplement;
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
@@ -34,8 +35,8 @@ public class LoginDataSource {
                    return new Result.Success<>(objectAdministrador);
 
                }else{
-
-                   return new Result.Error( errorCredentiales = new Exception("Error logging in"));
+                    errorCredentiales = new Exception("Error Login in");
+                   return new Result.Error( errorCredentiales);
 
                }
     }
@@ -45,9 +46,7 @@ public class LoginDataSource {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-
                 administrador = db.interfaceDao().getAdministrador(username);
-
             }
         });
         try {

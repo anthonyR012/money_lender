@@ -149,8 +149,8 @@ public class SingUp extends Fragment {
         createAdministrador = new Administrador(id.getText().toString(),nombre.getText().toString(),
                 apellido.getText().toString(),email.getText().toString(),null);
 
-        String value = viewModel.insertData(createAdministrador,db,pass.getText().toString());
-        mySnackbar = Snackbar.make(root,value, Snackbar.LENGTH_LONG);
+        int value = viewModel.insertData(createAdministrador,db,pass.getText().toString());
+        mySnackbar = Snackbar.make(root,getString(value), Snackbar.LENGTH_LONG);
         mySnackbar.show();
         cleanEdiText();
     }
