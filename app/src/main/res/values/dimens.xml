@@ -1,6 +1,9 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+<!--    LOGIN UI-->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="marginInput">2dp</dimen>
+    <dimen name="input_size_width">0dp</dimen>
+<!--    RESGITRAR UI-->
+    <dimen name="input_size_width_small">150sp</dimen>
 </resources>

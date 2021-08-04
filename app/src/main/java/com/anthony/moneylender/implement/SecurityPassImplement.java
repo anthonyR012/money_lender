@@ -49,7 +49,7 @@ public class SecurityPassImplement {
 
     private Cipher obtieneCipher(boolean paraCifrar) {
         try {
-            final String frase = "W3W3Cr1pt0fr4s3ForR3gular030821ENCRYPTATIONFRASE";
+            final String frase = "W3W3Cr1pt0fr4s3ForR3gular0308213NCR1PT4T2036RASE";
             final MessageDigest digest = MessageDigest.getInstance(sha);
             digest.update(frase.getBytes(estandar));
             final SecretKeySpec key = new SecretKeySpec(digest.digest(), 0, 16, "AES");
