@@ -3,9 +3,11 @@ package com.anthony.moneylender.ui.login.optiones.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
@@ -40,38 +42,51 @@ public class SingUp extends Fragment {
     private EditText id,nombre,apellido,email,pass;
     private Snackbar mySnackbar;
     private final int  duration = 5;
+    private final String ID_EDIT = "id";
+    private final String NOMBRE_EDIT = "nombre";
+    private final String APELLIDO_EDIT = "apellido";
+    private final String EMAIL_EDIT = "email";
+    private final String PASS_EDIT = "pass";
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         viewModel = new ViewModelProvider(this).get(singViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_sing_up, container, false);
         context = getActivity().getApplicationContext();
         db = DataBaseMoney.getInstance(context);
-        id = root.findViewById(R.id.idUser);
-        nombre = root.findViewById(R.id.nameUser);
-        apellido = root.findViewById(R.id.lastNameUser);
-        email = root.findViewById(R.id.emailUser);
-        pass = root.findViewById(R.id.passUser);
+        id = view.findViewById(R.id.idUser);
+        nombre = view.findViewById(R.id.nameUser);
+        apellido = view.findViewById(R.id.lastNameUser);
+        email = view.findViewById(R.id.emailUser);
+        pass = view.findViewById(R.id.passUser);
 
 
-            root.findViewById(R.id.singIn).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, LoginActivity.class);
-                    startActivity(intent);
-                    getActivity().finish();
+        if (savedInstanceState != null) {
+            id.setText(savedInstanceState.getString("id"));
+            nombre.setText(savedInstanceState.getString(NOMBRE_EDIT));
+            apellido.setText(savedInstanceState.getString(APELLIDO_EDIT));
+            email.setText(savedInstanceState.getString(EMAIL_EDIT));
+            pass.setText(savedInstanceState.getString(PASS_EDIT));
 
-                }
-            });
+        }
 
-        root.findViewById(R.id.btn_registrar).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.singIn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+
+            }
+        });
+
+        view.findViewById(R.id.btn_registrar).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
-                registraUser(root);
+                registraUser(view);
             }
         });
 
@@ -103,7 +118,7 @@ public class SingUp extends Fragment {
                     pass.setError(getString(stateRegistro));
                 }
                 if(stateRegistro.equals(R.string.valid_action)){
-                    root.findViewById(R.id.btn_registrar).setEnabled(true);
+                    view.findViewById(R.id.btn_registrar).setEnabled(true);
 
                 }
 
@@ -139,10 +154,47 @@ public class SingUp extends Fragment {
 
 
 
-        return root;
 
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
+
+        View root = inflater.inflate(R.layout.fragment_sing_up, container, false);
+
+        return root;
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+    }
+
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        id = savedInstanceState.getParcelable(ID_EDIT);
+//        nombre = savedInstanceState.getParcelable(NOMBRE_EDIT);
+//        apellido = savedInstanceState.getParcelable(APELLIDO_EDIT);
+//        email = savedInstanceState.getParcelable(EMAIL_EDIT);
+//        pass = savedInstanceState.getParcelable(PASS_EDIT);
+//
+//    }
+
+
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("id", id.getText().toString());
+        outState.putString(NOMBRE_EDIT, nombre.getText().toString());
+        outState.putString(APELLIDO_EDIT, apellido.getText().toString());
+        outState.putString(EMAIL_EDIT, email.getText().toString());
+        outState.putString(PASS_EDIT, pass.getText().toString());
+        // call superclass to save any view hierarchy
+
+    }
 
     private void registraUser(View root) {
 

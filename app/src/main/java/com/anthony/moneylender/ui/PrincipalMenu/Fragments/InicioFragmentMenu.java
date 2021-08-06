@@ -1,19 +1,21 @@
 package com.anthony.moneylender.ui.PrincipalMenu.Fragments;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.anthony.moneylender.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link InicioFragment#newInstance} factory method to
+ * Use the {@link InicioFragmentMenu#newInstance} factory method to
  * create an instance of this fragment.
- *
  */
-public class InicioFragment extends Fragment {
+public class InicioFragmentMenu extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,26 +26,26 @@ public class InicioFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    public InicioFragmentMenu() {
+        // Required empty public constructor
+    }
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InicioFragment.
+     * @return A new instance of fragment InicioFragmentMenu.
      */
     // TODO: Rename and change types and number of parameters
-    public static InicioFragment newInstance(String param1, String param2) {
-        InicioFragment fragment = new InicioFragment();
+    public static InicioFragmentMenu newInstance(String param1, String param2) {
+        InicioFragmentMenu fragment = new InicioFragmentMenu();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    public InicioFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -59,6 +61,6 @@ public class InicioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sing_up, container, false);
+        return inflater.inflate(R.layout.fragment_inicio_menu, container, false);
     }
 }

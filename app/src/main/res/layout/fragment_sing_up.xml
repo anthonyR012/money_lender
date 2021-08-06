@@ -27,18 +27,20 @@
 
         <EditText
             android:id="@+id/idUser"
-            android:layout_width="wrap_content"
-            android:layout_height="46dp"
+            android:layout_width="52dp"
+            android:layout_height="45dp"
             android:layout_marginTop="108dp"
             android:background="@drawable/shadow"
             android:elevation="9dp"
             android:hint="Id"
             android:inputType="textPersonName"
             android:padding="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/lastNameUser"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.395"
+            app:layout_constraintHorizontal_bias="0.355"
             app:layout_constraintStart_toEndOf="@+id/photoUser"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.367" />
 
         <EditText
             android:id="@+id/nameUser"
@@ -66,8 +68,6 @@
             android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/emailUser"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/nameUser"
             app:layout_constraintTop_toBottomOf="@+id/photoUser"
             app:layout_constraintVertical_bias="0.0" />
 
