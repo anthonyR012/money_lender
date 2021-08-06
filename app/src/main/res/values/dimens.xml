@@ -5,5 +5,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="input_size_width">0dp</dimen>
 <!--    RESGITRAR UI-->
-    <dimen name="input_size_width_small">150sp</dimen>
+    <dimen name="input_size_width_small">150dp</dimen>
+<!--    MENU PRINCIPAL UI-->
+
+    <dimen name="card_size_width">110dp</dimen>
+    <dimen name="card_size_heigth">110dp</dimen>
+    <dimen name="img_card_width">80dp</dimen>
+    <dimen name="img_card_heigth">60dp</dimen>
+    <dimen name="text_card_heigth">35dp</dimen>
+    <dimen name="text_size">10sp</dimen>
+    <dimen name="layout_card_width">110sp</dimen>
+    <dimen name="layout_card_heigth">110sp</dimen>
 </resources>

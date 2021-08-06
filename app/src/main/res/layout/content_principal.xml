@@ -8,48 +8,48 @@
 
 
     <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/GridLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
         app:columnCount="2"
-        app:rowCount="3"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
         app:orientation="horizontal"
-        android:id="@+id/GridLayout1"
-        tools:context=".GridXMLActivity"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:rowCount="3"
+        tools:context=".GridXMLActivity">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/card_size_width"
+            android:layout_height="@dimen/card_size_heigth"
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:layout_width="140dp"
-                android:layout_height="155dp"
-                android:orientation="vertical"
-                >
+                android:layout_width="@dimen/layout_card_width"
+                android:layout_height="@dimen/layout_card_heigth"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="100dp"
+
+                    android:layout_width="@dimen/img_card_width"
+                    android:layout_height="@dimen/img_card_heigth"
                     android:layout_gravity="center"
                     android:background="@drawable/comprension"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop" />
 
 
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/btn_crear"
+                <TextView
                     style="?attr/borderlessButtonStyle"
-                    />
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/text_card_heigth"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/btn_crear"
+                    android:textSize="@dimen/text_size" />
 
             </LinearLayout>
 
@@ -58,34 +58,36 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/card_size_width"
+            android:layout_height="@dimen/card_size_heigth"
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:layout_width="140dp"
-                android:layout_height="155dp"
+                android:layout_width="@dimen/layout_card_width"
+                android:layout_height="@dimen/layout_card_heigth"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/img_card_width"
+                    android:layout_height="@dimen/img_card_heigth"
                     android:layout_gravity="center"
                     android:background="@drawable/presupuesto"
-                    android:scaleType="centerCrop"
                     android:contentDescription="@string/app_name"
-                    />
+                    android:scaleType="centerCrop" />
 
 
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/btn_administra"
+                <TextView
                     style="?attr/borderlessButtonStyle"
-                    />
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/text_card_heigth"
+                    android:layout_gravity="center"
+
+                    android:gravity="center"
+                    android:text="@string/btn_administra"
+                    android:textSize="@dimen/text_size" />
 
             </LinearLayout>
 
@@ -95,34 +97,36 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/card_size_width"
+            android:layout_height="@dimen/card_size_heigth"
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:layout_width="140dp"
-                android:layout_height="155dp"
+                android:layout_width="@dimen/layout_card_width"
+                android:layout_height="@dimen/layout_card_heigth"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/img_card_width"
+                    android:layout_height="@dimen/img_card_heigth"
                     android:layout_gravity="center"
                     android:background="@drawable/usuario"
-                    android:scaleType="centerCrop"
                     android:contentDescription="@string/app_name"
-                    />
+                    android:scaleType="centerCrop" />
 
 
+                <TextView
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/text_card_heigth"
+                    android:layout_gravity="center"
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="145dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/btn_perfil"
-                        style="?attr/borderlessButtonStyle"
-                        />
+                    android:gravity="center"
+                    android:text="@string/btn_perfil"
+                    android:textSize="@dimen/text_size" />
 
             </LinearLayout>
 
@@ -132,19 +136,21 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/card_size_width"
+            android:layout_height="@dimen/card_size_heigth"
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:layout_width="140dp"
-                android:layout_height="155dp"
+                android:layout_width="@dimen/layout_card_width"
+                android:layout_height="@dimen/layout_card_heigth"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="100dp"
+                    android:layout_width="@dimen/img_card_width"
+                    android:layout_height="@dimen/img_card_heigth"
                     android:layout_gravity="center"
                     android:background="@drawable/prestamo"
                     android:contentDescription="@string/app_name"
@@ -153,12 +159,15 @@
 
                 <!-- Buttons -->
 
-                <com.google.android.material.button.MaterialButton
+                <TextView
                     style="?attr/borderlessButtonStyle"
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="@string/btn_prestamo" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/text_card_heigth"
+                    android:layout_gravity="center"
+
+                    android:gravity="center"
+                    android:text="@string/btn_prestamo"
+                    android:textSize="@dimen/text_size" />
 
 
             </LinearLayout>
@@ -168,33 +177,36 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/card_size_width"
+            android:layout_height="@dimen/card_size_heigth"
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:layout_width="140dp"
-                android:layout_height="155dp"
+                android:layout_width="@dimen/layout_card_width"
+                android:layout_height="@dimen/layout_card_heigth"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/acerca"
-                    android:scaleType="centerCrop"
+                    android:layout_width="@dimen/img_card_width"
+                    android:layout_height="@dimen/img_card_heigth"
                     android:layout_gravity="center"
+                    android:background="@drawable/acerca"
                     android:contentDescription="@string/app_name"
-                    />
+                    android:scaleType="centerCrop" />
 
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="145dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/btn_acerca"
-                        style="?attr/borderlessButtonStyle"
-                        />
+                <TextView
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/text_card_heigth"
+                    android:layout_gravity="center"
+
+                    android:gravity="center"
+                    android:text="@string/btn_acerca"
+                    android:textSize="@dimen/text_size" />
 
 
             </LinearLayout>
@@ -202,35 +214,36 @@
         </com.google.android.material.card.MaterialCardView>
 
 
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/card_size_width"
+            android:layout_height="@dimen/card_size_heigth"
             android:layout_margin="8dp">
 
             <LinearLayout
-                android:layout_width="140dp"
-                android:layout_height="155dp"
+                android:layout_width="@dimen/layout_card_width"
+                android:layout_height="@dimen/layout_card_heigth"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <!-- Media -->
                 <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/historial_medico"
-                    android:scaleType="centerCrop"
-                    android:contentDescription="@string/app_name"
+                    android:layout_width="@dimen/img_card_width"
+                    android:layout_height="@dimen/img_card_heigth"
                     android:layout_gravity="center"
-                    />
+                    android:background="@drawable/historial_medico"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="145dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/btn_hitorial"
-                        style="?attr/borderlessButtonStyle"
-                        />
+                <TextView
+                    style="?attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/text_card_heigth"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/btn_hitorial"
+                    android:textSize="@dimen/text_size" />
 
 
             </LinearLayout>

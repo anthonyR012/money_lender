@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/GridLayout1"
+        android:layout_width="174dp"
+        android:layout_height="367dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="80dp"
+        app:columnCount="2"
+        app:orientation="horizontal"
+        app:rowCount="3"
+        tools:context=".GridXMLActivity">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card6"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="76dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+
+                    android:layout_width="60dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/comprension"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="61dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/presupuesto"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="58dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/usuario"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card2"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/prestamo"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+                <!-- Buttons -->
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card3"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/acerca"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card4"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="59dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/historial_medico"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop" />
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.gridlayout.widget.GridLayout>
+</RelativeLayout>
