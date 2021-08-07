@@ -14,13 +14,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/photoUserSingin"
             android:layout_width="235dp"
             android:layout_height="158dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/money" />
 
         <TextView
+            android:id="@+id/nameUserSingin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

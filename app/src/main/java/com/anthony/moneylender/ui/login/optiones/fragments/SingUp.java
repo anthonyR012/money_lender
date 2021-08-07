@@ -1,27 +1,34 @@
 package com.anthony.moneylender.ui.login.optiones.fragments;
 
+import static com.anthony.moneylender.implement.EncoderHelperImplement.encode;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
@@ -29,6 +36,9 @@ import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
 import com.anthony.moneylender.models.login.optiones.singViewModel;
 import com.anthony.moneylender.ui.login.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 
 /**
@@ -41,14 +51,10 @@ public class SingUp extends Fragment {
     private Administrador createAdministrador;
     private EditText id,nombre,apellido,email,pass;
     private Snackbar mySnackbar;
-    private final String ID_EDIT = "id";
-    private final String NOMBRE_EDIT = "nombre";
-    private final String APELLIDO_EDIT = "apellido";
-    private final String EMAIL_EDIT = "email";
-    private final String PASS_EDIT = "pass";
-
-
-
+    private Uri imageUri;
+    private Bitmap selectedImage;
+    private ImageView photoUser;
+    private String imageEnconder;
 
 
     @Override
@@ -65,7 +71,33 @@ public class SingUp extends Fragment {
         apellido = root.findViewById(R.id.lastNameUser);
         email = root.findViewById(R.id.emailUser);
         pass = root.findViewById(R.id.passUser);
+        photoUser = root.findViewById(R.id.photoUser);
+        //datos bitmap seleccionados de la galeria
 
+        ActivityResultLauncher<Intent> imagenUp = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent data = result.getData();
+                            imageUri = data.getData();
+                            final InputStream imageStream;
+                            try {
+                                imageStream = getActivity().getContentResolver().openInputStream(imageUri);
+                                selectedImage = BitmapFactory.decodeStream(imageStream);
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            }
+
+                            photoUser.setImageURI(imageUri);
+
+                        }
+                    }
+                });
+
+
+        //funciones encargadas de verificar inputs
         stateLoginUser(root);
         observerLetterEditText();
             root.findViewById(R.id.singIn).setOnClickListener(new View.OnClickListener() {
@@ -86,8 +118,21 @@ public class SingUp extends Fragment {
             }
         });
 
+        photoUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loaderImg(imagenUp);
+            }
+        });
 
         return root;
+
+    }
+
+    private void loaderImg(ActivityResultLauncher<Intent> imagenUp) {
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        gallery.setType("image/*");
+        imagenUp.launch(gallery);
 
     }
 
@@ -163,10 +208,15 @@ public class SingUp extends Fragment {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void registraUser(View root) {
 
+        imageEnconder = selectedImage!=null?encode(selectedImage):null;
+
         createAdministrador = new Administrador(id.getText().toString(),nombre.getText().toString(),
-                apellido.getText().toString(),email.getText().toString(),null);
+        apellido.getText().toString(),email.getText().toString(),null,
+        imageEnconder);
+
 
         int value = viewModel.insertData(createAdministrador,db,pass.getText().toString());
         mySnackbar = Snackbar.make(root,getString(value), Snackbar.LENGTH_LONG);
@@ -180,6 +230,7 @@ public class SingUp extends Fragment {
         apellido.setText("");
         email.setText("");
         pass.setText("");
+        photoUser.setImageResource(R.drawable.login);
     }
 
 

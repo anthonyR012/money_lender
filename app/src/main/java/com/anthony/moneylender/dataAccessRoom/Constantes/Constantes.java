@@ -18,6 +18,7 @@ public class Constantes {
     public static final String CAMPO_APELLIDO_ADMINISTRADOR = "apellido_administrador";
     public static final String CAMPO_EMAIL_ADMINISTRADOR = "email_administrador";
     public static final String CAMPO_PASS_ADMINISTRADOR = "pass_administrador";
+    public static final String CAMPO_PHOTO_ADMINISTRADOR = "photo_administrador";
     //    CONSTANTES TABLA PRESTAMOS
     public static final String TABLA_PRESTAMOS = "prestamos";
     public static final String CAMPO_ID_PRESTAMOS_PK = "id_prestamos_pk";

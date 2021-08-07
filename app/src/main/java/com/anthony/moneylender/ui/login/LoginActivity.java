@@ -2,15 +2,10 @@ package com.anthony.moneylender.ui.login;
 
 import android.app.Activity;
 
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -23,14 +18,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
+import com.anthony.moneylender.implement.SerializableUserImplement;
 import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
-import com.anthony.moneylender.ui.login.optiones.fragments.SingUp;
-import com.anthony.moneylender.ui.login.optiones.fragments.forgotPass;
 import com.anthony.moneylender.ui.login.optiones.Optiones;
 
 import java.io.Serializable;
@@ -168,12 +161,16 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
 
 
     private void updateUiWithUser(LoggedInUserView model) {
-//        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        // TODO : initiate successful logged in experience
-//        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+
         Intent intent = new Intent(LoginActivity.this, PrincipalMenu.class);
-        finish();
+        Bundle bundle = new Bundle();
+        SerializableUserImplement administrador
+                = new SerializableUserImplement(model.getDisplayId(),model.getDisplayName(),model.getDisplayPhoto());
+
+        bundle.putSerializable("INFORMATION",administrador);
+         intent.putExtras(bundle);
         startActivity(intent);
+        finish();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

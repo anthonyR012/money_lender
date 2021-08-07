@@ -7,12 +7,18 @@ public class LoggedInUser {
 
     private String userId;
     private String displayName;
+    private String photo;
 
-    public LoggedInUser(String userId, String displayName) {
+
+    public LoggedInUser(String userId, String displayName, String photo) {
         this.userId = userId;
         this.displayName = displayName;
+        this.photo = photo;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
     public String getUserId() {
         return userId;
     }

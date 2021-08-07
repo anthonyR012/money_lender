@@ -7,6 +7,8 @@ import androidx.room.PrimaryKey;
 
 import com.anthony.moneylender.dataAccessRoom.Constantes.Constantes;
 
+import java.io.Serializable;
+
 @Entity(tableName = Constantes.TABLA_ADMINISTRADOR)
 public class Administrador {
     @PrimaryKey
@@ -20,13 +22,24 @@ public class Administrador {
     private String email_administrador;
     @ColumnInfo(name = Constantes.CAMPO_PASS_ADMINISTRADOR)
     private byte[] pass_administrador;
+    @ColumnInfo(name = Constantes.CAMPO_PHOTO_ADMINISTRADOR)
+    private String dataImg_administrador;
 
-    public Administrador(@NonNull String id_administrador_pk, String nombre_administrador, String apellido_administrador, String email_administrador, byte[] pass_administrador) {
+    public Administrador(@NonNull String id_administrador_pk, String nombre_administrador, String apellido_administrador, String email_administrador, byte[] pass_administrador,String dataImg_administrador) {
         this.id_administrador_pk = id_administrador_pk;
         this.nombre_administrador = nombre_administrador;
         this.apellido_administrador = apellido_administrador;
         this.email_administrador = email_administrador;
         this.pass_administrador = pass_administrador;
+        this.dataImg_administrador = dataImg_administrador;
+
+    }
+    public String getDataImg_administrador() {
+        return dataImg_administrador;
+    }
+
+    public void setDataImg_administrador(String dataImg_administrador) {
+        this.dataImg_administrador = dataImg_administrador;
     }
 
     public String getId_administrador() {

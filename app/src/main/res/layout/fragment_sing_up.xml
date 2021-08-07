@@ -27,8 +27,8 @@
 
         <EditText
             android:id="@+id/idUser"
-            android:layout_width="52dp"
-            android:layout_height="45dp"
+            android:layout_width="64dp"
+            android:layout_height="46dp"
             android:layout_marginTop="108dp"
             android:background="@drawable/shadow"
             android:elevation="9dp"
@@ -37,37 +37,41 @@
             android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/lastNameUser"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.355"
+            app:layout_constraintHorizontal_bias="0.26"
             app:layout_constraintStart_toEndOf="@+id/photoUser"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.367" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/nameUser"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="43dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/shadow"
             android:elevation="9dp"
-            android:hint="Primer Nombre"
+            android:hint="Nombre"
             android:padding="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/lastNameUser"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/photoUser" />
 
         <EditText
             android:id="@+id/lastNameUser"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="43dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/shadow"
             android:elevation="9dp"
-            android:hint="Primer Apellido"
+            android:hint="Apellido"
             android:inputType="textPersonName"
             android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/emailUser"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.924"
+            app:layout_constraintStart_toEndOf="@+id/nameUser"
             app:layout_constraintTop_toBottomOf="@+id/photoUser"
             app:layout_constraintVertical_bias="0.0" />
 

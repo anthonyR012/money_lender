@@ -31,7 +31,10 @@ public class LoginDataSource {
                    objectAdministrador =
                            new LoggedInUser(
                                    administrador.id_administrador_pk,
-                                   administrador.getNombre_administrador()+" "+administrador.getApellido_administrador());
+                                   administrador.getNombre_administrador()+" "+
+                                           administrador.getApellido_administrador(),
+                                   administrador.getDataImg_administrador()!=null?administrador.getDataImg_administrador():null);
+
                    return new Result.Success<>(objectAdministrador);
 
                }else{
