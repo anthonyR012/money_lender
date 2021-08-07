@@ -1,5 +1,6 @@
 package com.anthony.moneylender.ui.login.optiones;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -22,7 +24,8 @@ import com.anthony.moneylender.ui.login.optiones.fragments.forgotPass;
 public class Optiones extends AppCompatActivity {
     private FragmentTransaction fragmentTransaction;
     private Fragment fragmentSingUp,fragmentForgotPass;
-
+    private final String FRAGMENT_SING_KEY = "registrar";
+    private final String FRAGMENT_REST_KEY = "restablecer";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +78,7 @@ public class Optiones extends AppCompatActivity {
         fragmentTransaction.commit();
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }
