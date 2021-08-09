@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/shadow.xml" value="0.17592592592592593" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/slash_background.xml" value="0.17592592592592593" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/splash_icon.xml" value="0.17592592592592593" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout-land/activity_login.xml" value="0.15784832451499117" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout-land/fragment_sing_up.xml" value="0.33" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout-sw180dp/content_principal.xml" value="0.33" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/activity_login.xml" value="0.18645833333333334" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/activity_principal_menu.xml" value="0.2" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/activity_splash_screen.xml" value="0.18645833333333334" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/container_principal.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/content_principal.xml" value="0.25" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_forgot_pass.xml" value="0.25" />

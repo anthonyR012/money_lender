@@ -22,6 +22,11 @@
         <item name="colorPrimary">#1454A3</item>
     </style>
     <style name="Theme.money.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+    </style>
+    <style name="SplashInit" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground" >
 
+            @drawable/slash_background
+        </item>
     </style>
 </resources>

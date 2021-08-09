@@ -1,66 +1,78 @@
 package com.anthony.moneylender.ui.login.optiones.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.anthony.moneylender.R;
+import com.anthony.moneylender.models.login.optiones.forguetViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link forgotPass#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class forgotPass extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public forgotPass() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment forgotPass.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static forgotPass newInstance(String param1, String param2) {
-        forgotPass fragment = new forgotPass();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private EditText to;
+    private String mensaje = "Su numero de recuperacion es: ";
+    private int numeroRandom;
+    private final String asunto = "RESTABLECER CONTRASEÑA";
+    private Button enviar;
+    private Context context;
+    private forguetViewModel viewModel;
+    private String fragmentContext;
+    private View root;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_forgot_pass, container, false);
+        root = inflater.inflate(R.layout.fragment_forgot_pass, container, false);
+        context = getContext();
+        fragmentContext = this.getClass().getSimpleName();
+        to = root.findViewById(R.id.remitente);
+        enviar = root.findViewById(R.id.btn_enviar);
+
+        viewModel = new ViewModelProvider(this).get(forguetViewModel.class);
+
+
+        enviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mailMessageSend();
+            }
+        });
+
+
+        return root;
+
     }
+
+    private void mailMessageSend() {
+        mensaje+= String.valueOf(createNumberRandom());
+        viewModel.send(asunto,mensaje,to,context,fragmentContext);
+
+    }
+
+    private int createNumberRandom() {
+
+        int valor1 = (int) (Math.random()*1000);
+        int valor2 = (int) (Math.random()*1000);
+        numeroRandom = valor1 * valor2;
+        return numeroRandom;
+    }
+
+    public void updateViewEnterCode() {
+        
+    }
+
+
+
 }

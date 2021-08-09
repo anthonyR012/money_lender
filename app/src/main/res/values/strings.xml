@@ -29,4 +29,7 @@
     <string name="SingUp">Registrarme</string>
     <string name="forgot">Olvide mi contraseña</string>
     <string name="alReady">Ya tienes una cuenta?</string>
+    <!--EMAIL, PASS SEND EMAIL FOR USER-->
+    <string name="email_remitente">rubionn27@gmail.com</string>
+    <string name="pass_remitente">rubion.n</string>
 </resources>

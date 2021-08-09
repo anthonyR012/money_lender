@@ -1,3 +1,4 @@
 /build
 /src/main/java/com/anthony/moneylender/dataAccessRoom/
 /src/main/java/com/anthony/moneylender/implement/SecurityPassImplement.java
+/src/main/java/res/values/strings.xml

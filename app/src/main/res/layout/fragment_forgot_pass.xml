@@ -26,7 +26,7 @@
             android:id="@+id/textView"
             android:layout_width="342dp"
             android:layout_height="92dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:text="¿Se te olvido la contraseña?, Tranquilo escribe el numero registrado"
@@ -37,34 +37,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+
         <EditText
-            android:id="@+id/editTextPhone"
+            android:id="@+id/remitente"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="40dp"
             android:ems="10"
-            android:hint="Ingrese numero "
-            android:inputType="phone"
+            android:hint="correo registrado"
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_enviar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
             android:layout_marginEnd="40dp"
-            android:text="Button"
+            android:text="Enviar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+            app:layout_constraintTop_toBottomOf="@+id/remitente" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
