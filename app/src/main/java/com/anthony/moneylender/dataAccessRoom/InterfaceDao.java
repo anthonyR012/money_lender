@@ -28,4 +28,7 @@ public interface InterfaceDao {
 
     @Query("SELECT * FROM administrador WHERE email_administrador = :email")
     public Administrador getAdministrador(String email);
+
+    @Query("UPDATE administrador SET pass_administrador = :newPass  WHERE id_administrador_pk = :id ")
+    int updatePass(String newPass,String id);
 }

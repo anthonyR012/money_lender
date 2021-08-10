@@ -15,7 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class singViewModel extends ViewModel {
+public class SingViewModel extends ViewModel {
     private MutableLiveData<Integer> registroFormState = new MutableLiveData<>();
     private SecurityPassImplement encriptacion;
     private byte[] datoEncriptado;

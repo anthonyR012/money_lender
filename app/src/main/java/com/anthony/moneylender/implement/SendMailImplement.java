@@ -4,13 +4,12 @@ package com.anthony.moneylender.implement;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.text.Html;
 import android.widget.Toast;
 
-import com.anthony.moneylender.ui.login.optiones.fragments.forgotPass;
+import com.anthony.moneylender.ui.login.optiones.fragments.ForgotPass;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -18,19 +17,17 @@ import javax.mail.Transport;
 
 public class SendMailImplement extends AsyncTask<Message,String,String> {
     private ProgressDialog progressDialog;
-    private Context context;
-    private String contextFragment;
+    private RepositoryImplement repositoryImplement;
 
-    public void setData(Context context, Message message, String contextFragment) {
-        this.context = context;
-        this.contextFragment = contextFragment;
+    public void setData(Message message, RepositoryImplement repositoryImplement) {
+        this.repositoryImplement = repositoryImplement;
         execute(message);
 
     }
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progressDialog = ProgressDialog.show(context,"Please Wait","Sending Mail..."
+        progressDialog = ProgressDialog.show(repositoryImplement.getContext(), "Please Wait","Sending Mail..."
                 ,true,false);
 
 
@@ -55,16 +52,16 @@ public class SendMailImplement extends AsyncTask<Message,String,String> {
         super.onPostExecute(s);
         progressDialog.dismiss();
         if(s.equals("Success")){
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            AlertDialog.Builder builder = new AlertDialog.Builder(repositoryImplement.getContext());
             builder.setCancelable(false);
             builder.setTitle(Html.fromHtml("<font color='#509324'>Success</font>"));
             builder.setMessage("Mail send successfully.");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if(contextFragment.equals("forgotPass")){
-                        forgotPass instance = new forgotPass();
-                        instance.updateViewEnterCode();
+                    if(repositoryImplement.getFragmentContext().equals("ForgotPass")){
+                        ForgotPass instance = new ForgotPass();
+                        instance.updateViewEnterCode(repositoryImplement);
                     }
 
                 }
@@ -73,7 +70,7 @@ public class SendMailImplement extends AsyncTask<Message,String,String> {
 
         }else{
 
-            Toast.makeText(context, "Something went wrong ? ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(repositoryImplement.getContext(), "Something went wrong ? ", Toast.LENGTH_SHORT).show();
         }
     }
 

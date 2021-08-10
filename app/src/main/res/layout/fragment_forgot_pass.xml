@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/fragmentForguet"
     android:layout_height="match_parent"
-    tools:context=".ui.login.optiones.fragments.forgotPass">
+    tools:context=".ui.login.optiones.fragments.ForgotPass">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,9 +24,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="342dp"
-            android:layout_height="92dp"
+            android:id="@+id/information"
+            android:layout_width="335dp"
+            android:layout_height="86dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
@@ -48,10 +49,11 @@
             android:ems="10"
             android:hint="correo registrado"
             android:inputType="text"
+            android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/information" />
 
         <Button
             android:id="@+id/btn_enviar"
@@ -65,6 +67,29 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/remitente" />
+
+        <TextView
+            android:id="@+id/btn_ingresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
+            android:text="Ingresar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_enviar" />
+
+        <TextView
+            android:id="@+id/btn_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="40dp"
+            android:text="Contactarnos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+
+            app:layout_constraintStart_toEndOf="@+id/btn_ingresar"
+            app:layout_constraintTop_toBottomOf="@+id/btn_enviar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

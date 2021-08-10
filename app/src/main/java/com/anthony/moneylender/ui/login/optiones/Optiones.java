@@ -1,6 +1,5 @@
 package com.anthony.moneylender.ui.login.optiones;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -8,18 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.ActionMode;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.ui.login.LoginActivity;
 import com.anthony.moneylender.ui.login.optiones.fragments.SingUp;
-import com.anthony.moneylender.ui.login.optiones.fragments.forgotPass;
+import com.anthony.moneylender.ui.login.optiones.fragments.ForgotPass;
 
 public class Optiones extends AppCompatActivity {
     private FragmentTransaction fragmentTransaction;
@@ -31,7 +25,7 @@ public class Optiones extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_optiones);
 
-        fragmentForgotPass = new forgotPass();
+        fragmentForgotPass = new ForgotPass();
         fragmentSingUp = new SingUp();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -45,6 +39,8 @@ public class Optiones extends AppCompatActivity {
             }else{
                 getSupportFragmentManager().beginTransaction().add(R.id.containerFragment,fragmentForgotPass).commit();
             }
+        }else{
+            getSupportFragmentManager().beginTransaction().add(R.id.containerFragment,fragmentForgotPass).commit();
         }
 
     }

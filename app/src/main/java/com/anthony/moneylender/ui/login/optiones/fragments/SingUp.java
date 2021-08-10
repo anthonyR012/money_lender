@@ -33,7 +33,7 @@ import android.widget.ImageView;
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
-import com.anthony.moneylender.models.login.optiones.singViewModel;
+import com.anthony.moneylender.models.login.optiones.SingViewModel;
 import com.anthony.moneylender.ui.login.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -45,7 +45,7 @@ import java.io.InputStream;
  * A simple {@link Fragment} subclass.
  */
 public class SingUp extends Fragment {
-    private singViewModel viewModel;
+    private SingViewModel viewModel;
     private Context context;
     private DataBaseMoney db;
     private Administrador createAdministrador;
@@ -62,7 +62,7 @@ public class SingUp extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        viewModel = new ViewModelProvider(this).get(singViewModel.class);
+        viewModel = new ViewModelProvider(this).get(SingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_sing_up, container, false);
         context = getActivity().getApplicationContext();
         db = DataBaseMoney.getInstance(context);

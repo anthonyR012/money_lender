@@ -1,15 +1,12 @@
 package com.anthony.moneylender.models.login.optiones;
 
-import android.content.Context;
 import android.os.StrictMode;
-import android.util.Log;
-import android.widget.EditText;
 
 import androidx.lifecycle.ViewModel;
 
 import com.anthony.moneylender.R;
+import com.anthony.moneylender.implement.RepositoryImplement;
 import com.anthony.moneylender.implement.SendMailImplement;
-import com.anthony.moneylender.ui.login.optiones.fragments.forgotPass;
 
 import java.util.Properties;
 
@@ -20,14 +17,16 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class forguetViewModel extends ViewModel {
+public class ForguetViewModel extends ViewModel {
     private Session session;
     private final Integer correo = R.string.email_remitente,password = R.string.pass_remitente;
+    private final String asunto = "RESTABLECER CONTRASEÑA";
     private Message message;
     private StrictMode.ThreadPolicy policy;
     private Properties properties;
 
-    public void send(String asunto, String mensaje, EditText to, Context context, String fragmentContext){
+    public void send(RepositoryImplement repositoryImplement){
+        //POLITICA Y PROPIEDADES DEL MENSAJE
         policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         properties = new Properties();
@@ -38,26 +37,27 @@ public class forguetViewModel extends ViewModel {
         properties.put("mail.smtp.port","465");
 
         try {
-
+            //AUTENTICAR CORREO EMISOR
             session = javax.mail.Session.getDefaultInstance(properties, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
 
-                    return new PasswordAuthentication( context.getString(correo),context.getString(password));
+                    return new PasswordAuthentication( repositoryImplement.getContext().getString(correo), repositoryImplement.getContext().getString(password));
 
                 }
             });
             if(session!=null){
 
-
+                //GENERAR MENSAJE
                 message = new MimeMessage(session);
 
-                message.setFrom(new InternetAddress(context.getString(correo)));
+                message.setFrom(new InternetAddress(repositoryImplement.getContext().getString(correo)));
                 message.setRecipients(Message.RecipientType.TO,
-                        InternetAddress.parse(to.getText().toString().trim()));
+                        InternetAddress.parse(repositoryImplement.getTo()));
                 message.setSubject(asunto);
-                message.setContent(mensaje,"text/html; charset=utf-8");
-                new SendMailImplement().setData(context,message,fragmentContext);
+                message.setContent(repositoryImplement.getMensaje(),"text/html; charset=utf-8");
+                //LLAMAR METODO CON PROGRESS
+                new SendMailImplement().setData(message, repositoryImplement);
 
 
             }
@@ -67,6 +67,7 @@ public class forguetViewModel extends ViewModel {
         }
 
     }
+
 
 
 }
