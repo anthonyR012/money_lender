@@ -1,11 +1,14 @@
 package com.anthony.moneylender.models.login.optiones;
 
+import android.os.AsyncTask;
 import android.os.StrictMode;
 
 import androidx.lifecycle.ViewModel;
 
 import com.anthony.moneylender.R;
+import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.implement.RepositoryImplement;
+import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.implement.SendMailImplement;
 
 import java.util.Properties;
@@ -24,6 +27,8 @@ public class ForguetViewModel extends ViewModel {
     private Message message;
     private StrictMode.ThreadPolicy policy;
     private Properties properties;
+    private int countEmail;
+    private byte[] newPass;
 
     public void send(RepositoryImplement repositoryImplement){
         //POLITICA Y PROPIEDADES DEL MENSAJE
@@ -69,5 +74,47 @@ public class ForguetViewModel extends ViewModel {
     }
 
 
+    public int veryfyStateEmail(DataBaseMoney db, String correo) {
+        return queryResult(db,correo);
 
+    }
+
+    private int queryResult(DataBaseMoney db, String correo) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                countEmail = db.interfaceDao().queryEmailExist(correo);
+            }
+        });
+        try {
+            Thread.sleep(1000);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return countEmail;
+    }
+
+    public void updatePass(DataBaseMoney db,String correo,String pass){
+
+            updateNewPrivatePass(db,correo,pass);
+    }
+
+    private void updateNewPrivatePass(DataBaseMoney db, String pass, String correo) {
+        SecurityPassImplement passImplement = new SecurityPassImplement();
+        newPass =  passImplement.cifra(pass);
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                db.interfaceDao().updatePass(newPass,correo);
+
+            }
+        });
+        try {
+            Thread.sleep(1000);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

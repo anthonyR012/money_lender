@@ -1,10 +1,20 @@
 package com.anthony.moneylender.ui.login.optiones.fragments;
 
+import static android.text.InputType.TYPE_CLASS_NUMBER;
+import static android.text.InputType.TYPE_CLASS_TEXT;
+import static android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD;
+import static android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+import static android.text.InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD;
+
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -17,9 +27,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.anthony.moneylender.R;
+import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.implement.RepositoryImplement;
+import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.models.login.optiones.ForguetViewModel;
 import com.anthony.moneylender.ui.login.LoginActivity;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class ForgotPass extends Fragment {
@@ -35,6 +51,9 @@ public class ForgotPass extends Fragment {
     private String fragmentContext;
     private View root;
     private ViewGroup containerLayout;
+    private DataBaseMoney db;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +68,8 @@ public class ForgotPass extends Fragment {
         enviar = root.findViewById(R.id.btn_enviar);
         ingresar = root.findViewById(R.id.btn_ingresar);
         contactar = root.findViewById(R.id.btn_contact);
+        db = DataBaseMoney.getInstance(context);
+
 
         viewModel = new ViewModelProvider(this).get(ForguetViewModel.class);
 
@@ -83,16 +104,26 @@ public class ForgotPass extends Fragment {
 
     private void mailMessageSend() {
 
+        //CONFIRMAR CORREO EXISTENTE EN LA BBDD
+        if(viewModel.veryfyStateEmail(db,to.getText().toString()) > 0){
+            //DEVUELVE NUMERO RANDOM A STRING
+            int number = createNumberRandom();
+            mensaje+= number;
+            //GUARDA DATOS DE LA VISTA
+            RepositoryImplement repositoryImplement = new
+                    RepositoryImplement
+                    (containerLayout,root,fragmentContext,context,to.getText().toString(),mensaje,number,db);
+            //INSTANCIA OBJETO MENSAJE Y LO ENVIA
+            viewModel.send(repositoryImplement);
+        }else{
+            Snackbar mySnackbar = Snackbar.make(root,
+                    "Correo no registrado",
+                    BaseTransientBottomBar.LENGTH_LONG
+                    );
+            mySnackbar.show();
+        }
 
 
-        //DEVUELVE NUMERO RANDOM A STRING
-        int number = createNumberRandom();
-        mensaje+= number;
-        //GUARDA DATOS DE LA VISTA
-        RepositoryImplement repositoryImplement = new
-                RepositoryImplement(containerLayout,root,fragmentContext,context,to.getText().toString(),mensaje,number);
-        //INSTANCIA OBJETO MENSAJE Y LO ENVIA
-        viewModel.send(repositoryImplement);
 
     }
 
@@ -113,6 +144,7 @@ public class ForgotPass extends Fragment {
             TextView reenviar = repositoryImplement.getRoot().findViewById(R.id.btn_ingresar);
             TextView wrongEmail = repositoryImplement.getRoot().findViewById(R.id.btn_contact);
 
+            introduceCode.setInputType(TYPE_CLASS_NUMBER);
             //SETEA DATOS DE LA VISTA
             introduceCode.setText("");
             introduceCode.setHint("Ingrese el codigo");
@@ -137,15 +169,75 @@ public class ForgotPass extends Fragment {
             verify.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    confirmCodeIntroduced(introduceCode.getText().toString(),repositoryImplement.getNumber());
+                    confirmCodeIntroduced(introduceCode.getText().toString(),repositoryImplement);
                 }
             });
 
 
     }
 
-    private void confirmCodeIntroduced(String code, int number) {
-        Log.i("Code ingresado",code);
+
+    private void confirmCodeIntroduced(String code, RepositoryImplement repo) {
+
+        if(code.equals(( String.valueOf(repo.getNumber())))){
+            UpdateViewForNewPass(repo);
+
+        }else{
+            Snackbar mySnackbar = Snackbar.make(repo.getRoot(),
+                    "Codigo incorrecto",
+                    BaseTransientBottomBar.LENGTH_LONG
+            );
+            mySnackbar.show();
+        }
+    }
+
+
+    private void UpdateViewForNewPass(RepositoryImplement repo) {
+        EditText introducePass = repo.getRoot().findViewById(R.id.remitente);
+        Button update = repo.getRoot().findViewById(R.id.btn_enviar);
+        TextView text = repo.getRoot().findViewById(R.id.information);
+        TextView reenviar = repo.getRoot().findViewById(R.id.btn_ingresar);
+        TextView wrongEmail = repo.getRoot().findViewById(R.id.btn_contact);
+
+        introducePass.setInputType(TYPE_CLASS_TEXT | TYPE_TEXT_VARIATION_PASSWORD);
+
+        introducePass.setText("");
+        introducePass.setHint("Ingrese nueva contraseña");
+        update.setText("Actualizar");
+        text.setText("Proceso exitoso, Ingresa tu nueva contraseña");
+
+        wrongEmail.setVisibility(View.GONE);
+        reenviar.setVisibility(View.GONE);
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updatePassInDb(introducePass.getText().toString(),repo);
+            }
+        });
+
+    }
+
+    private void updatePassInDb(String pass, RepositoryImplement repo) {
+        ForguetViewModel viewModel = new ForguetViewModel();
+
+        viewModel.updatePass(repo.getDb(),pass,repo.getTo());
+
+//finalizamos la actividad actual
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(repo.getContext());
+        builder.setMessage(R.string.update_complete)
+                .setPositiveButton(R.string.accep_dialog, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent=new Intent();
+                        intent.setClass(repo.getContext(),LoginActivity.class);
+                        //llamamos a la actividad
+                        repo.getContext().startActivity(intent);
+                    }
+                });
+        builder.show();
+
     }
 
     private void reiniciarActivity(Context context) {
