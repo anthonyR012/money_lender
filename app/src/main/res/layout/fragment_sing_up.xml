@@ -28,7 +28,7 @@
         <EditText
             android:id="@+id/idUser"
             android:layout_width="64dp"
-            android:layout_height="46dp"
+            android:layout_height="48dp"
             android:layout_marginTop="108dp"
             android:background="@drawable/shadow"
             android:elevation="9dp"
@@ -44,7 +44,7 @@
         <EditText
             android:id="@+id/nameUser"
             android:layout_width="0dp"
-            android:layout_height="43dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="10dp"
@@ -59,7 +59,7 @@
         <EditText
             android:id="@+id/lastNameUser"
             android:layout_width="0dp"
-            android:layout_height="43dp"
+            android:layout_height="48dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
@@ -78,7 +78,7 @@
         <EditText
             android:id="@+id/emailUser"
             android:layout_width="@dimen/input_size_width"
-            android:layout_height="43dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
@@ -96,7 +96,7 @@
         <EditText
             android:id="@+id/passUser"
             android:layout_width="@dimen/input_size_width"
-            android:layout_height="43dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="16dp"
@@ -116,13 +116,13 @@
         <Button
             android:id="@+id/btn_registrar"
             android:layout_width="@dimen/input_size_width"
-            android:layout_height="43dp"
+            android:layout_height="48dp"
             android:layout_gravity="start"
-            android:enabled="false"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/shadow"
+            android:enabled="false"
             android:text="@string/SingUp"
             android:textColor="#fff"
             app:backgroundTint="#1454A3"

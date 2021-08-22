@@ -18,8 +18,7 @@ import com.anthony.moneylender.ui.login.optiones.fragments.ForgotPass;
 public class Optiones extends AppCompatActivity {
     private FragmentTransaction fragmentTransaction;
     private Fragment fragmentSingUp,fragmentForgotPass;
-    private final String FRAGMENT_SING_KEY = "registrar";
-    private final String FRAGMENT_REST_KEY = "restablecer";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

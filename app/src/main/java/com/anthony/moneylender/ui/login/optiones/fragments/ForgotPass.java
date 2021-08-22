@@ -227,7 +227,7 @@ public class ForgotPass extends Fragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(repo.getContext());
         builder.setMessage(R.string.update_complete)
-                .setPositiveButton(R.string.accep_dialog, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.accept_dialog, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent=new Intent();

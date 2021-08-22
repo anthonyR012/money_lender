@@ -1,14 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#C0D2FF"
     tools:context=".ui.PrincipalMenu.Fragments.RegistrarClientFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/phoneClient"
+        android:layout_width="0dp"
+        android:hint="Telefono Cliente"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="17sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/sulphur_light"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:background="@drawable/inputborder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressClient" />
+
+    <EditText
+        android:id="@+id/addressClient"
+        android:layout_width="0dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="17sp"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="Dirección Cliente"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:background="@drawable/inputborder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastClient" />
+
+    <EditText
+        android:id="@+id/lastClient"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="23dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:hint="Apellido Cliente"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/imgCreateClient"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameClient" />
+
+    <EditText
+        android:id="@+id/nameClient"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="23dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:hint="Nombre Cliente"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/imgCreateClient"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imgCreateClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/create_user"
+        app:layout_constraintBottom_toTopOf="@+id/addressClient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.724" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/titanone_regular"
+        android:text="@string/title_register_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCreateClient"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_accept_border"
+        android:shadowRadius="50"
+        android:fontFamily="@font/sulphur_light"
+        android:textSize="17sp"
+        android:text="@string/btn_save_client"
+        app:backgroundTint="#38DA52"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneClient" />
+</androidx.constraintlayout.widget.ConstraintLayout>

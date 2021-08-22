@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/btn_accept_border.xml" value="0.17962962962962964" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/btn_input_border.xml" value="0.17962962962962964" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/inputborder.xml" value="0.1814814814814815" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/rectangle_1__2_.xml" value="0.1814814814814815" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/shadow.xml" value="0.17592592592592593" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/slash_background.xml" value="0.17592592592592593" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/splash_icon.xml" value="0.17592592592592593" />
@@ -21,6 +25,7 @@
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_inicio_principal.xml" value="0.18645833333333334" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_perfil_amd.xml" value="0.18645833333333334" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_prestamo_client.xml" value="0.18645833333333334" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_registrar_client.xml" value="0.2" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_sing_up.xml" value="0.22" />
       </map>
     </option>
