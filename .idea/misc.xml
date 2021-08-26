@@ -18,15 +18,20 @@
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/activity_splash_screen.xml" value="0.18645833333333334" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/container_principal.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/content_principal.xml" value="0.25" />
-        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_acerca.xml" value="0.18645833333333334" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_acerca.xml" value="0.25" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_administrar_client.xml" value="0.22" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_detail_lender.xml" value="0.18645833333333334" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_forgot_pass.xml" value="0.25" />
-        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_historial.xml" value="0.18645833333333334" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_historial.xml" value="0.22" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_inicio_menu.xml" value="0.2" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_inicio_principal.xml" value="0.18645833333333334" />
-        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_perfil_amd.xml" value="0.18645833333333334" />
-        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_prestamo_client.xml" value="0.18645833333333334" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_perfil_amd.xml" value="0.22" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_prestamo_client.xml" value="0.2" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_registrar_client.xml" value="0.2" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/fragment_sing_up.xml" value="0.22" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/item_client.xml" value="0.2" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/item_lender.xml" value="0.25" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/items_lender.xml" value="0.1" />
       </map>
     </option>
   </component>

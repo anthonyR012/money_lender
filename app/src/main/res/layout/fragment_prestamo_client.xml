@@ -1,14 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/blue_clear"
     android:layout_height="match_parent"
-    tools:context=".ui.PrincipalMenu.Fragments.PrestamoClientFragment">
+    tools:context=".ui.PrincipalMenu.Fragments.PrestamoClientFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/idClientLender3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sulphur_light"
+        android:text="Id Cliente"
+        android:textColor="#CA9202"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/direccionClientLender"
+        app:layout_constraintTop_toBottomOf="@+id/telefonoClientLender2" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/telefonoClientLender2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sulphur_light"
+        android:text="Telefono Cliente"
+        android:textColor="#CA9202"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/nameClientLender2"
+        app:layout_constraintTop_toBottomOf="@+id/searchClient" />
+
+    <TextView
+        android:id="@+id/nameClientLender2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sulphur_light"
+        android:text="Nombre Cliente"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchClient" />
+
+    <EditText
+        android:id="@+id/searchClient"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/shadow"
+        android:drawableRight="@drawable/search"
+        android:ems="10"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="Buscar Cliente"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateLender" />
+
+    <EditText
+        android:id="@+id/interest"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="%T.I"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/termDues" />
+
+    <EditText
+        android:id="@+id/dateLender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="Fecha Prestamo"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/interest"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dues" />
+
+    <EditText
+        android:id="@+id/dues"
+        android:layout_width="101dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="Cuotas"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amountLender" />
+
+    <EditText
+        android:id="@+id/termDues"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="Plazo Cuotas"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/dues"
+        app:layout_constraintTop_toBottomOf="@+id/amountLender" />
+
+    <EditText
+        android:id="@+id/amountLender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="Cantidad Prestamo"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleLender" />
+
+    <TextView
+        android:id="@+id/titleLender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/titanone_regular"
+        android:text="@string/title_register_lender"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/direccionClientLender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sulphur_light"
+        android:text="Dirección Cliente"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameClientLender2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/direccionClientLender"
+        app:layout_constraintVertical_bias="0.169" />
+
+    <Button
+        android:id="@+id/btn_acceptLender"
+        android:layout_width="0dp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="50dp"
+        android:textStyle="bold"
+        android:background="@drawable/inputborder"
+        android:text="@string/btn_accept"
+        app:backgroundTint="#38DA52"
+        android:fontFamily="@font/sulphur_light"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/idClientLender3"
+        app:layout_constraintVertical_bias="0.014" />
+</androidx.constraintlayout.widget.ConstraintLayout>

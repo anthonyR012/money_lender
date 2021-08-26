@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PrincipalMenu.Fragments.AdministrarClientFragment">
+    android:background="@color/yellow_ligth"
+    tools:context=".ui.PrincipalMenu.Fragments.AdministrarClientFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageButton
+        android:id="@+id/moveLeftClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Detailender"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemLenders"
+        app:srcCompat="@drawable/moveleft" />
+
+    <ImageButton
+        android:id="@+id/moveRigthClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Detailender"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemLenders"
+        app:srcCompat="@drawable/moverigth" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/titleAdministra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/titanone_regular"
+        android:text="@string/title_hello_administrator"
 
-</FrameLayout>
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/search_client"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/inputborder"
+        android:backgroundTint="@color/white"
+        android:drawableRight="@drawable/search"
+        android:ems="10"
+        android:hint="Buscar Cliente"
+        android:inputType="textPersonName"
+        android:padding="@dimen/padding_input_create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleAdministra" />
+
+    <TextView
+        android:id="@+id/Listacliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#CA9202"
+        android:shadowDx="5"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:shadowColor="@color/black"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/sulphur_light"
+        android:text="Lista Cliente"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_client" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleItemClients"
+        android:layout_width="0dp"
+        android:layout_height="410dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Listacliente"
+        tools:listitem="@layout/item_client" />
+</androidx.constraintlayout.widget.ConstraintLayout>

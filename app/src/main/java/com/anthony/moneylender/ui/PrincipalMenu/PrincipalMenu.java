@@ -9,7 +9,7 @@ import com.anthony.moneylender.R;
 import com.anthony.moneylender.implement.SerializableUserImplement;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.AcercaFragment;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.AdministrarClientFragment;
-import com.anthony.moneylender.ui.PrincipalMenu.Fragments.HistorialFragment;
+import com.anthony.moneylender.ui.PrincipalMenu.Fragments.lender.HistorialFragment;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.InicioFragmentMenu;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.PerfilAmdFragment;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.PrestamoClientFragment;
