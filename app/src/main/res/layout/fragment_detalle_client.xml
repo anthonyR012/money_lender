@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow_ligth"
+    tools:context=".ui.PrincipalMenu.Fragments.Client.DetalleClient" >
+
+    <EditText
+        android:id="@+id/xtenderLender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:hint="Extender Plazo"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lenderClientPrincipal" />
+
+    <EditText
+        android:id="@+id/updateInterest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:hint="Cambiar %T.I"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateLenderAmount" />
+
+    <ImageButton
+        android:id="@+id/actualLender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="lenderSide"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/information"
+        app:layout_constraintStart_toEndOf="@+id/lenderClientPrincipal"
+        app:layout_constraintTop_toBottomOf="@+id/telClientePrincipal" />
+
+    <TextView
+        android:id="@+id/lenderClientPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sulphur_light"
+        android:text="Prestamo actual"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telClientePrincipal" />
+
+    <TextView
+        android:id="@+id/telClientePrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sulphur_light"
+        android:text="Telefono Cliente"
+        android:textColor="#CA9202"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameClientePrincipal" />
+
+    <TextView
+        android:id="@+id/titleDetailClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/titanone_regular"
+        android:text="@string/title_detail_client"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/callToClient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="callToClient"
+        android:src="@drawable/call"
+        app:layout_constraintStart_toEndOf="@+id/titleDetailClient"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameClientePrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/sulphur_light"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="Nombre Cliente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleDetailClient" />
+
+    <EditText
+        android:id="@+id/updateLenderAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:hint="Cambiar $"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xtenderLender" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="reportClientLender"
+        android:src="@drawable/report"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/updateInterest"
+        app:layout_constraintTop_toBottomOf="@+id/updateLenderAmount" />
+
+    <Button
+        android:id="@+id/updateLender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/inputborder"
+        android:backgroundTint="#637B9E"
+        android:text="@string/btn_update_lender"
+        app:backgroundTint="#637B9E"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateInterest" />
+
+    <Spinner
+        android:id="@+id/despliegueLender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateLender" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

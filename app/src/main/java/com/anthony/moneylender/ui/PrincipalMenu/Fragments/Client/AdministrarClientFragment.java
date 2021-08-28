@@ -1,4 +1,4 @@
-package com.anthony.moneylender.ui.PrincipalMenu.Fragments.lender;
+package com.anthony.moneylender.ui.PrincipalMenu.Fragments.Client;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.anthony.moneylender.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DetailLender#newInstance} factory method to
+ * Use the {@link AdministrarClientFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetailLender extends Fragment {
+public class AdministrarClientFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class DetailLender extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DetailLender() {
+    public AdministrarClientFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class DetailLender extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DetailLender.
+     * @return A new instance of fragment AdministrarClientFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetailLender newInstance(String param1, String param2) {
-        DetailLender fragment = new DetailLender();
+    public static AdministrarClientFragment newInstance(String param1, String param2) {
+        AdministrarClientFragment fragment = new AdministrarClientFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class DetailLender extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_lender, container, false);
+        return inflater.inflate(R.layout.fragment_administrar_client, container, false);
     }
 }

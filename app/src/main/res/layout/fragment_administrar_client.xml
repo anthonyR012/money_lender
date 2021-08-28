@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yellow_ligth"
-    tools:context=".ui.PrincipalMenu.Fragments.AdministrarClientFragment" >
+    tools:context=".ui.PrincipalMenu.Fragments.Client.AdministrarClientFragment" >
 
     <ImageButton
         android:id="@+id/moveLeftClient"
@@ -18,7 +18,7 @@
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycleItemLenders"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemClients"
         app:srcCompat="@drawable/moveleft" />
 
     <ImageButton
@@ -32,7 +32,7 @@
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycleItemLenders"
+        app:layout_constraintTop_toBottomOf="@+id/recycleItemClients"
         app:srcCompat="@drawable/moverigth" />
 
     <TextView

@@ -1,4 +1,4 @@
-package com.anthony.moneylender.ui.PrincipalMenu.Fragments;
+package com.anthony.moneylender.ui.PrincipalMenu.Fragments.Lender;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.anthony.moneylender.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AdministrarClientFragment#newInstance} factory method to
+ * Use the {@link HistorialFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AdministrarClientFragment extends Fragment {
+public class HistorialFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class AdministrarClientFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AdministrarClientFragment() {
+    public HistorialFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class AdministrarClientFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AdministrarClientFragment.
+     * @return A new instance of fragment HistorialFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AdministrarClientFragment newInstance(String param1, String param2) {
-        AdministrarClientFragment fragment = new AdministrarClientFragment();
+    public static HistorialFragment newInstance(String param1, String param2) {
+        HistorialFragment fragment = new HistorialFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class AdministrarClientFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_administrar_client, container, false);
+        return inflater.inflate(R.layout.fragment_historial, container, false);
     }
 }
