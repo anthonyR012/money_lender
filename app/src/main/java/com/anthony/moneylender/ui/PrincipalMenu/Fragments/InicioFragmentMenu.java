@@ -4,15 +4,19 @@ import static com.anthony.moneylender.implement.EncoderHelperImplement.decode;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +31,11 @@ public class InicioFragmentMenu extends Fragment {
 
     private SerializableUserImplement user;
     private Bitmap photo;
-    ImageView imagenAdapter;
-    CardView fbtAdministrar,fbtRegistrar,fbtPefil,
+    private ImageView imagenAdapter;
+    private CardView fbtAdministrar,fbtRegistrar,fbtPefil,
             fbtPrestamo,fbtAcerca,fbtHistorial;
-    View root;
-    IcomunicaFragments interfacesFragment;
+    private View root;
+    private IcomunicaFragments interfacesFragment;
     private Activity activity;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -68,6 +72,9 @@ public class InicioFragmentMenu extends Fragment {
             interfacesFragment = (IcomunicaFragments) activity;
         }
     }
+
+
+
 
     private void eventsClick() {
 

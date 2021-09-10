@@ -33,6 +33,7 @@ import android.widget.ImageView;
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
+import com.anthony.moneylender.databinding.FragmentSingUpBinding;
 import com.anthony.moneylender.models.login.optiones.SingViewModel;
 import com.anthony.moneylender.ui.login.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
@@ -45,15 +46,15 @@ import java.io.InputStream;
  * A simple {@link Fragment} subclass.
  */
 public class SingUp extends Fragment {
+
+    private FragmentSingUpBinding binding;
     private SingViewModel viewModel;
     private Context context;
     private DataBaseMoney db;
     private Administrador createAdministrador;
-    private EditText id,nombre,apellido,email,pass;
     private Snackbar mySnackbar;
     private Uri imageUri;
     private Bitmap selectedImage;
-    private ImageView photoUser;
     private String imageEnconder;
 
 
@@ -63,15 +64,11 @@ public class SingUp extends Fragment {
         // Inflate the layout for this fragment
 
         viewModel = new ViewModelProvider(this).get(SingViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_sing_up, container, false);
+        binding = FragmentSingUpBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
         context = getActivity().getApplicationContext();
         db = DataBaseMoney.getInstance(context);
-        id = root.findViewById(R.id.idUser);
-        nombre = root.findViewById(R.id.nameUser);
-        apellido = root.findViewById(R.id.lastNameUser);
-        email = root.findViewById(R.id.emailUser);
-        pass = root.findViewById(R.id.passUser);
-        photoUser = root.findViewById(R.id.photoUser);
+
         //datos bitmap seleccionados de la galeria
 
         ActivityResultLauncher<Intent> imagenUp = registerForActivityResult(
@@ -90,7 +87,7 @@ public class SingUp extends Fragment {
                                 e.printStackTrace();
                             }
 
-                            photoUser.setImageURI(imageUri);
+                            binding.photoUser.setImageURI(imageUri);
 
                         }
                     }
@@ -118,7 +115,7 @@ public class SingUp extends Fragment {
             }
         });
 
-        photoUser.setOnClickListener(new View.OnClickListener() {
+        binding.photoUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loaderImg(imagenUp);
@@ -153,15 +150,15 @@ public class SingUp extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
 
-                viewModel.loginDataChanged(id.getText().toString(),nombre.getText().toString(),apellido
-                        .getText().toString(),email.getText().toString(),pass.getText().toString(),db);
+                viewModel.loginDataChanged(binding.idUser.getText().toString(),binding.nameUser.getText().toString(),binding.lastNameUser
+                        .getText().toString(),binding.emailUser.getText().toString(),binding.passUser.getText().toString(),db);
             }
         };
-        id.addTextChangedListener(afterTextChangedListener);
-        nombre.addTextChangedListener(afterTextChangedListener);
-        apellido.addTextChangedListener(afterTextChangedListener);
-        email.addTextChangedListener(afterTextChangedListener);
-        pass.addTextChangedListener(afterTextChangedListener);
+        binding.idUser.addTextChangedListener(afterTextChangedListener);
+        binding.nameUser.addTextChangedListener(afterTextChangedListener);
+        binding.lastNameUser.addTextChangedListener(afterTextChangedListener);
+        binding.emailUser.addTextChangedListener(afterTextChangedListener);
+        binding.passUser.addTextChangedListener(afterTextChangedListener);
     }
 
     private void stateLoginUser(View root) {
@@ -172,25 +169,25 @@ public class SingUp extends Fragment {
                     return;
                 }
                 if (stateRegistro.equals(R.string.id_exist)) {
-                    id.setError(getString(stateRegistro));
+                    binding.idUser.setError(getString(stateRegistro));
                 }
                 if (stateRegistro.equals(R.string.email_exist)) {
-                    email.setError(getString(stateRegistro));
+                    binding.emailUser.setError(getString(stateRegistro));
                 }
                 if (stateRegistro.equals(R.string.id_invalid)) {
-                    id.setError(getString(stateRegistro));
+                    binding.idUser.setError(getString(stateRegistro));
                 }
                 if (stateRegistro.equals(R.string.nombre_invalid)) {
-                    nombre.setError(getString(stateRegistro));
+                    binding.nameUser.setError(getString(stateRegistro));
                 }
                 if (stateRegistro.equals(R.string.apellido_invalid)) {
-                    apellido.setError(getString(stateRegistro));
+                    binding.lastNameUser.setError(getString(stateRegistro));
                 }
                 if (stateRegistro.equals(R.string.email_invalid)) {
-                    email.setError(getString(stateRegistro));
+                    binding.emailUser.setError(getString(stateRegistro));
                 }
                 if (stateRegistro.equals(R.string.pass_invalid)) {
-                    pass.setError(getString(stateRegistro));
+                    binding.passUser.setError(getString(stateRegistro));
                 }
                 if(stateRegistro.equals(R.string.valid_action)){
                     root.findViewById(R.id.btn_registrar).setEnabled(true);
@@ -213,24 +210,24 @@ public class SingUp extends Fragment {
 
         imageEnconder = selectedImage!=null?encode(selectedImage):null;
 
-        createAdministrador = new Administrador(id.getText().toString(),nombre.getText().toString(),
-        apellido.getText().toString(),email.getText().toString(),null,
+        createAdministrador = new Administrador(binding.idUser.getText().toString(),binding.nameUser.getText().toString(),
+        binding.lastNameUser.getText().toString(),binding.emailUser.getText().toString(),null,
         imageEnconder);
 
 
-        int value = viewModel.insertData(createAdministrador,db,pass.getText().toString());
+        int value = viewModel.insertData(createAdministrador,db,binding.passUser.getText().toString());
         mySnackbar = Snackbar.make(root,getString(value), Snackbar.LENGTH_LONG);
         mySnackbar.show();
         cleanEdiText();
     }
 
     private void cleanEdiText() {
-        id.setText("");
-        nombre.setText("");
-        apellido.setText("");
-        email.setText("");
-        pass.setText("");
-        photoUser.setImageResource(R.drawable.login);
+        binding.idUser.setText("");
+        binding.nameUser.setText("");
+        binding.lastNameUser.setText("");
+        binding.emailUser.setText("");
+        binding.passUser.setText("");
+        binding.photoUser.setImageResource(R.drawable.login);
     }
 
 

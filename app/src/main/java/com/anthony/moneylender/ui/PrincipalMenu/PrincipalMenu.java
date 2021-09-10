@@ -1,9 +1,19 @@
 package com.anthony.moneylender.ui.PrincipalMenu;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.implement.SerializableUserImplement;
@@ -19,7 +29,10 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
     private  Fragment initialFragment,administrarFragment,
             registrarFragment,acercaFragment,perfilFragment
             ,historialFragment,prestamoFragment;
+    private Bundle argsAdministrator;
     private SerializableUserImplement administrador;
+    private int count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +41,8 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
         Bundle bundle = getIntent().getExtras();
         administrador = (SerializableUserImplement) bundle.getSerializable("INFORMATION");
 
-        Bundle args = new Bundle();
-        args.putSerializable("INFORMATION",administrador);
+        Bundle argsAdministrator = new Bundle();
+        argsAdministrator.putSerializable("INFORMATION",administrador);
         administrarFragment = new AdministrarClientFragment();
          initialFragment = new InicioFragmentMenu();
          registrarFragment = new RegistrarClientFragment();
@@ -38,7 +51,10 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
          historialFragment = new HistorialFragment();
          prestamoFragment = new PrestamoClientFragment();
 
-         initialFragment.setArguments(args);
+        //SEND DATA ADMINISTRADIR WITH CLASS SERIALIZABLE
+        registrarFragment.setArguments(argsAdministrator);
+         initialFragment.setArguments(argsAdministrator);
+
 
          getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragmentMenu
          ,initialFragment).commit();
@@ -47,9 +63,54 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
 
 
     @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(PrincipalMenu.this);
+                builder.setMessage("¿Deseas salir de la aplicación?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ProgressDialog progressDialog = ProgressDialog.show(PrincipalMenu.this, "Thank's :)","Closing..."
+                                        ,true,false);
+                                new CountDownTimer(1500, 1000) {
+
+                                    @Override
+                                    public void onTick(long millisUntilFinished) {
+
+                                    }
+
+                                    @Override
+                                    public void onFinish() {
+                                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                                        intent.addCategory(Intent.CATEGORY_HOME);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        finish();
+                                        startActivity(intent);
+                                    }
+                                }.start();
+
+
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                dialog.dismiss();
+                            }
+                        });
+
+                builder.show();
+
+    }
+
+
+
+    @Override
     public void RegistrarClient() {
+
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragmentMenu
                 ,registrarFragment).commit();
+
     }
 
     @Override
@@ -80,5 +141,11 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
     public void Historial() {
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragmentMenu
                 ,historialFragment).commit();
+    }
+
+    @Override
+    public void inicio() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragmentMenu
+                ,initialFragment).commit();
     }
 }

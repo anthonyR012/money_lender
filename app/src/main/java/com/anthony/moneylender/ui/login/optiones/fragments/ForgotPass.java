@@ -28,6 +28,8 @@ import android.widget.TextView;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
+import com.anthony.moneylender.databinding.FragmentForgotPassBinding;
+import com.anthony.moneylender.databinding.FragmentSingUpBinding;
 import com.anthony.moneylender.implement.RepositoryImplement;
 import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.models.login.optiones.ForguetViewModel;
@@ -40,12 +42,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ForgotPass extends Fragment {
 
-
-    private EditText to;
-    private TextView ingresar,contactar;
+    private FragmentForgotPassBinding binding;
     private String mensaje = "Su numero de recuperacion es: ";
     private int numeroRandom;
-    private Button enviar;
     private Context context;
     private ForguetViewModel viewModel;
     private String fragmentContext;
@@ -61,32 +60,29 @@ public class ForgotPass extends Fragment {
         // Inflate the layout for this fragment
 
         containerLayout = container;
-        root = inflater.inflate(R.layout.fragment_forgot_pass, container, false);
+        binding = FragmentForgotPassBinding.inflate(inflater, container, false);
+        root = binding.getRoot();
         context = getContext();
         fragmentContext = this.getClass().getSimpleName();
-        to = root.findViewById(R.id.remitente);
-        enviar = root.findViewById(R.id.btn_enviar);
-        ingresar = root.findViewById(R.id.btn_ingresar);
-        contactar = root.findViewById(R.id.btn_contact);
         db = DataBaseMoney.getInstance(context);
 
 
         viewModel = new ViewModelProvider(this).get(ForguetViewModel.class);
 
-        contactar.setOnClickListener(new View.OnClickListener() {
+        binding.btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ContactPersonal();
             }
         });
-        ingresar.setOnClickListener(new View.OnClickListener() {
+        binding.btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(context, LoginActivity.class));
             }
         });
 
-        enviar.setOnClickListener(new View.OnClickListener() {
+        binding.btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mailMessageSend();
@@ -105,14 +101,14 @@ public class ForgotPass extends Fragment {
     private void mailMessageSend() {
 
         //CONFIRMAR CORREO EXISTENTE EN LA BBDD
-        if(viewModel.veryfyStateEmail(db,to.getText().toString()) > 0){
+        if(viewModel.veryfyStateEmail(db,binding.remitente.getText().toString()) > 0){
             //DEVUELVE NUMERO RANDOM A STRING
             int number = createNumberRandom();
             mensaje+= number;
             //GUARDA DATOS DE LA VISTA
             RepositoryImplement repositoryImplement = new
                     RepositoryImplement
-                    (containerLayout,root,fragmentContext,context,to.getText().toString(),mensaje,number,db);
+                    (containerLayout,root,fragmentContext,context,binding.remitente.getText().toString(),mensaje,number,db);
             //INSTANCIA OBJETO MENSAJE Y LO ENVIA
             viewModel.send(repositoryImplement);
         }else{

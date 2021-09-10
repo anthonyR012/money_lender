@@ -7,5 +7,6 @@ public interface IcomunicaFragments {
     public void PrestamoClient();
     public void Acerca();
     public void Historial();
+    public void inicio();
 
 }

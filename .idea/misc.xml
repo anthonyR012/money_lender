@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/btn_accept_border.xml" value="0.17962962962962964" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/btn_input_border.xml" value="0.17962962962962964" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/ic_return.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/ic_return_background.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/inputborder.xml" value="0.1814814814814815" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/rectangle_1__2_.xml" value="0.1814814814814815" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/drawable/shadow.xml" value="0.17592592592592593" />
@@ -17,6 +21,7 @@
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/activity_optiones.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/activity_principal_menu.xml" value="0.2" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/activity_splash_screen.xml" value="0.18645833333333334" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/app_navbar.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/container_principal.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/content_principal.xml" value="0.25" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/floating_buttons.xml" value="0.14673913043478262" />
@@ -35,8 +40,17 @@
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/item_client.xml" value="0.2" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/item_lender.xml" value="0.25" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/layout/items_lender.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_about_forground.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_about_forground_round.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_logo.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_logo_forground.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_logo_forground_round.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_logo_round.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_return.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_return_forground.xml" value="0.1" />
+        <entry key="..\:/Anthony/Practicas/MoneyLender/app/src/main/res/mipmap-anydpi-v26/ic_return_forground_round.xml" value="0.1" />
       </map>
     </option>
   </component>

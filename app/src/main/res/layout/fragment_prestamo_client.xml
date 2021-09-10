@@ -7,8 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.PrincipalMenu.Fragments.PrestamoClientFragment" >
 
+    <EditText
+        android:id="@+id/termDues"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:background="@drawable/inputborder"
+        android:ems="10"
+        android:fontFamily="@font/sulphur_light"
+        android:hint="Plazo Cuotas"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/padding_input_create"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countDues" />
+
     <TextView
-        android:id="@+id/idClientLender3"
+        android:id="@+id/idClientLenderAssigned"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -97,14 +116,14 @@
         android:ems="10"
         android:fontFamily="@font/sulphur_light"
         android:hint="Fecha Prestamo"
-        android:inputType="textPersonName"
+        android:inputType="date"
         android:minHeight="48dp"
         android:padding="@dimen/padding_input_create"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/interest"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dues" />
+        app:layout_constraintTop_toBottomOf="@+id/termDues" />
 
     <EditText
         android:id="@+id/dues"
@@ -124,7 +143,7 @@
         app:layout_constraintTop_toBottomOf="@+id/amountLender" />
 
     <EditText
-        android:id="@+id/termDues"
+        android:id="@+id/countDues"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -133,7 +152,7 @@
         android:background="@drawable/inputborder"
         android:ems="10"
         android:fontFamily="@font/sulphur_light"
-        android:hint="Plazo Cuotas"
+        android:hint="Cantidad Cuotas"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="@dimen/padding_input_create"
@@ -219,6 +238,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/idClientLender3"
+        app:layout_constraintTop_toBottomOf="@+id/idClientLenderAssigned"
         app:layout_constraintVertical_bias="0.014" />
+
+    <FrameLayout
+        android:elevation="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <include
+            layout="@layout/floating_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

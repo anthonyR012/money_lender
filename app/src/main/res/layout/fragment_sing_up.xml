@@ -20,7 +20,7 @@
             android:layout_width="@dimen/input_size_width_small"
             android:layout_height="130dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,27 +29,25 @@
             android:id="@+id/idUser"
             android:layout_width="64dp"
             android:layout_height="48dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/shadow"
-            android:elevation="9dp"
+            android:elevation="8dp"
             android:hint="Id"
             android:inputType="textPersonName"
             android:padding="10dp"
             app:layout_constraintBottom_toTopOf="@+id/lastNameUser"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.26"
-            app:layout_constraintStart_toEndOf="@+id/photoUser"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/photoUser" />
 
         <EditText
             android:id="@+id/nameUser"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/shadow"
-            android:elevation="9dp"
+            android:elevation="8dp"
             android:hint="Nombre"
             android:padding="10dp"
             app:layout_constraintEnd_toStartOf="@+id/lastNameUser"
@@ -61,10 +59,11 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/shadow"
-            android:elevation="9dp"
+            android:elevation="8dp"
             android:hint="Apellido"
             android:inputType="textPersonName"
             android:padding="10dp"
@@ -80,10 +79,10 @@
             android:layout_width="@dimen/input_size_width"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/shadow"
-            android:elevation="9dp"
+            android:elevation="8dp"
             android:hint="@string/prompt_email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
@@ -98,10 +97,10 @@
             android:layout_width="@dimen/input_size_width"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/shadow"
-            android:elevation="9dp"
+            android:elevation="8dp"
             android:hint="@string/prompt_password"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
@@ -126,27 +125,19 @@
             android:text="@string/SingUp"
             android:textColor="#fff"
             app:backgroundTint="#1454A3"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passUser"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/passUser" />
 
         <TextView
             android:id="@+id/singIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
             android:text="@string/alReady"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.141"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_registrar"
-            app:layout_constraintVertical_bias="0.123" />
-
-
-
-
+            app:layout_constraintTop_toBottomOf="@+id/btn_registrar" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

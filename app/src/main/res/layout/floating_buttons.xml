@@ -9,17 +9,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/returnIcon"
+            android:id="@+id/Fb_aboutApplication"
+            app:fab_icon="@drawable/ic_about"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-            android:layout_height="wrap_content"/>
         <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/userAdministra"
+            android:id="@+id/Fb_userAdministra"
+            android:layout_width="wrap_content"
+            app:fab_icon="@drawable/ic_administrar_user"
+            android:layout_height="wrap_content"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Fb_returnIcon"
+            app:fab_icon="@drawable/ic_resource_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/aboutApplication"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 </androidx.constraintlayout.widget.ConstraintLayout>

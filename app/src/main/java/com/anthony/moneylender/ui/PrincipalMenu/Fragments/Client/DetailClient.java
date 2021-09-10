@@ -1,4 +1,4 @@
-package com.anthony.moneylender.ui.PrincipalMenu.Fragments;
+package com.anthony.moneylender.ui.PrincipalMenu.Fragments.Client;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,27 +16,27 @@ import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 
-public class AcercaFragment extends Fragment {
+public class DetailClient extends Fragment {
+
+    private FloatingActionButton return_,administra_,about_ ;
     private View root;
     private IcomunicaFragments interfacesFragment;
     private Activity activity;
-    private FloatingActionButton return_,administra_,about_ ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        root =  inflater.inflate(R.layout.fragment_acerca, container, false);
+        root =  inflater.inflate(R.layout.fragment_detalle_client, container, false);
 
         return_ = root.findViewById(R.id.Fb_returnIcon);
         administra_ = root.findViewById(R.id.Fb_userAdministra);
         about_ = root.findViewById(R.id.Fb_aboutApplication);
+        eventClick();
 
-        eventsClick();
         return root;
-
     }
 
-    private void eventsClick() {
+    private void eventClick() {
+
         return_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
