@@ -1,5 +1,7 @@
 package com.anthony.moneylender.models.login;
 
+import static com.anthony.moneylender.implement.EncoderHelperImplement.encode;
+
 import android.os.AsyncTask;
 import android.os.Build;
 
@@ -23,6 +25,7 @@ public class LoginDataSource {
 
 
 
+
     public Result<LoggedInUser> login(String username, String password, DataBaseMoney db) {
             // TODO: handle loggedInUser authentication
 
@@ -33,7 +36,8 @@ public class LoginDataSource {
                                    administrador.id_administrador_pk,
                                    administrador.getNombre_administrador()+" "+
                                            administrador.getApellido_administrador(),
-                                   administrador.getDataImg_administrador()!=null?administrador.getDataImg_administrador():null);
+                                   administrador.getDataImg_administrador()!=null?administrador.getDataImg_administrador():null,
+                                   administrador.getEmail_administrador(),administrador.getPass_administrador());
 
                    return new Result.Success<>(objectAdministrador);
 
@@ -43,6 +47,7 @@ public class LoginDataSource {
 
                }
     }
+
 
 
     private boolean verifyCredential(String username, String password, DataBaseMoney db) {

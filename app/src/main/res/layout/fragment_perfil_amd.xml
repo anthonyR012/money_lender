@@ -38,7 +38,7 @@
         android:ems="10"
         android:fontFamily="@font/sulphur_light"
         android:hint="SETAR ****"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="@dimen/padding_input_create"
         android:textSize="17sp"
@@ -47,12 +47,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailAdmin" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/photoAdministrator"
+        android:layout_width="170dp"
+        android:layout_height="140dp"
         android:layout_marginTop="40dp"
         android:src="@drawable/perfil"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/photoAdministrator" />
 
     <Button
         android:id="@+id/btnUpdateAdmin"

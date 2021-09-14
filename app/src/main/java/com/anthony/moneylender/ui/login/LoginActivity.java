@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -165,10 +166,11 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         Intent intent = new Intent(LoginActivity.this, PrincipalMenu.class);
         Bundle bundle = new Bundle();
         SerializableUserImplement administrador
-                = new SerializableUserImplement(model.getDisplayId(),model.getDisplayName(),model.getDisplayPhoto());
+                = new SerializableUserImplement(model.getDisplayId(),model.getDisplayName(),
+                model.getDisplayPhoto(),model.getDisplayEmail(),model.getDisplayPass());
 
         bundle.putSerializable("INFORMATION",administrador);
-         intent.putExtras(bundle);
+        intent.putExtras(bundle);
         startActivity(intent);
         finish();
     }

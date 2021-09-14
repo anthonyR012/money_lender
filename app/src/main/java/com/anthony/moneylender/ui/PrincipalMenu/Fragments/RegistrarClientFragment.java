@@ -20,6 +20,7 @@ import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Cliente;
 import com.anthony.moneylender.databinding.FragmentForgotPassBinding;
 import com.anthony.moneylender.databinding.FragmentRegistrarClientBinding;
+import com.anthony.moneylender.implement.MySnackbar;
 import com.anthony.moneylender.implement.SerializableUserImplement;
 import com.anthony.moneylender.models.PrincipalMenuModel.RegisterClientModel;
 import com.anthony.moneylender.models.login.optiones.SingViewModel;
@@ -70,8 +71,9 @@ public class RegistrarClientFragment extends Fragment {
                         binding.addressClient.getText().toString(),binding.phoneClient.getText().toString(),user.getIdUser());
                 viewModel.insertData(client,db);
 
-                mySnackbar = Snackbar.make(root,getString(R.string.complete_Insert), Snackbar.LENGTH_LONG);
-                mySnackbar.show();
+                MySnackbar mySnackba = new MySnackbar(getString(R.string.complete_Insert),root);
+
+
             }
         });
 

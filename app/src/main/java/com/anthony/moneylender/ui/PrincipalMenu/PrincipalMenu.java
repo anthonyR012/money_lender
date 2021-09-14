@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -29,9 +30,7 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
     private  Fragment initialFragment,administrarFragment,
             registrarFragment,acercaFragment,perfilFragment
             ,historialFragment,prestamoFragment;
-    private Bundle argsAdministrator;
     private SerializableUserImplement administrador;
-    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +50,10 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
          historialFragment = new HistorialFragment();
          prestamoFragment = new PrestamoClientFragment();
 
-        //SEND DATA ADMINISTRADIR WITH CLASS SERIALIZABLE
+        //SEND DATA ADMINISTRADOR WITH CLASS SERIALIZABLE
         registrarFragment.setArguments(argsAdministrator);
          initialFragment.setArguments(argsAdministrator);
-
+        perfilFragment.setArguments(argsAdministrator);
 
          getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragmentMenu
          ,initialFragment).commit();

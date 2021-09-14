@@ -24,6 +24,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -209,6 +210,8 @@ public class SingUp extends Fragment {
     private void registraUser(View root) {
 
         imageEnconder = selectedImage!=null?encode(selectedImage):null;
+
+
 
         createAdministrador = new Administrador(binding.idUser.getText().toString(),binding.nameUser.getText().toString(),
         binding.lastNameUser.getText().toString(),binding.emailUser.getText().toString(),null,

@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,6 +44,7 @@ public class InicioFragmentMenu extends Fragment {
                              Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_inicio_menu, container, false);
          user = (SerializableUserImplement) getArguments().getSerializable("INFORMATION");
+
         if(user.getPhotoUser()!= null){
             photo = decode(user.getPhotoUser());
 

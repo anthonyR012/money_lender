@@ -30,6 +30,7 @@ import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.databinding.FragmentForgotPassBinding;
 import com.anthony.moneylender.databinding.FragmentSingUpBinding;
+import com.anthony.moneylender.implement.MySnackbar;
 import com.anthony.moneylender.implement.RepositoryImplement;
 import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.models.login.optiones.ForguetViewModel;
@@ -112,11 +113,10 @@ public class ForgotPass extends Fragment {
             //INSTANCIA OBJETO MENSAJE Y LO ENVIA
             viewModel.send(repositoryImplement);
         }else{
-            Snackbar mySnackbar = Snackbar.make(root,
-                    "Correo no registrado",
-                    BaseTransientBottomBar.LENGTH_LONG
-                    );
-            mySnackbar.show();
+
+            MySnackbar mySnackbar = new MySnackbar("Correo no registrado",root);
+
+
         }
 
 

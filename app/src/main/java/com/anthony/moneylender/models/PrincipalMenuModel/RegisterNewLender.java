@@ -20,33 +20,15 @@ import java.util.List;
 
 public class RegisterNewLender  extends ViewModel {
 
-    private MutableLiveData<List<Cliente>> cliente = new MutableLiveData<>();
-    private List<Cliente> clientSame;
-    public void ClientDataChanged(DataBaseMoney db,String name){
-//        AsyncTask.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//                clientSame = db.interfaceDao().getClient(name);
-//
-//            }
-//        });
-//
 
 
 
-    }
     public void insertNewLender(Prestamos prestamos, DataBaseMoney db){
 
         insertNewLenderPrivate(prestamos,db);
 
     }
 
-
-
-    public LiveData<List<Cliente>> getClientResult() {
-        return cliente;
-    }
 
     private void insertNewLenderPrivate(Prestamos prestamos, DataBaseMoney db) {
         AsyncTask.execute(new Runnable() {

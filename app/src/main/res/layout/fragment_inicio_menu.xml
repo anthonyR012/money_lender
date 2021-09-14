@@ -17,12 +17,12 @@
             android:background="@drawable/rectangle_1__2_"
             android:orientation="vertical">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/photoUserSingin"
-                android:layout_width="235dp"
-                android:layout_height="158dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/money" />
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:src="@drawable/money"
+               android:layout_gravity="center" />
 
             <TextView
                 android:id="@+id/nameUserSingin"
