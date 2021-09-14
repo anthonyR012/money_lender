@@ -16,7 +16,7 @@ import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 
-public class AdministrarClientFragment extends Fragment {
+public class HistorialClientFragment extends Fragment {
     private FloatingActionButton return_,administra_,about_ ;
     private View root;
     private IcomunicaFragments interfacesFragment;

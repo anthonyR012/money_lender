@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yellow_ligth"
-    tools:context=".ui.PrincipalMenu.Fragments.Client.AdministrarClientFragment" >
+    tools:context=".ui.PrincipalMenu.Fragments.Client.HistorialClientFragment" >
 
     <ImageButton
         android:id="@+id/moveLeftClient"

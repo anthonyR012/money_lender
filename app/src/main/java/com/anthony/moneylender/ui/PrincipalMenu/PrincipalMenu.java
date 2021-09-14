@@ -3,24 +3,18 @@ package com.anthony.moneylender.ui.PrincipalMenu;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.implement.SerializableUserImplement;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.AcercaFragment;
-import com.anthony.moneylender.ui.PrincipalMenu.Fragments.Client.AdministrarClientFragment;
-import com.anthony.moneylender.ui.PrincipalMenu.Fragments.Lender.HistorialFragment;
+import com.anthony.moneylender.ui.PrincipalMenu.Fragments.Client.HistorialClientFragment;
+import com.anthony.moneylender.ui.PrincipalMenu.Fragments.Lender.HistorialLenderFragment;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.InicioFragmentMenu;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.PerfilAmdFragment;
 import com.anthony.moneylender.ui.PrincipalMenu.Fragments.PrestamoClientFragment;
@@ -42,12 +36,12 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
 
         Bundle argsAdministrator = new Bundle();
         argsAdministrator.putSerializable("INFORMATION",administrador);
-        administrarFragment = new AdministrarClientFragment();
+        administrarFragment = new HistorialClientFragment();
          initialFragment = new InicioFragmentMenu();
          registrarFragment = new RegistrarClientFragment();
          acercaFragment = new AcercaFragment();
         perfilFragment = new PerfilAmdFragment();
-         historialFragment = new HistorialFragment();
+         historialFragment = new HistorialLenderFragment();
          prestamoFragment = new PrestamoClientFragment();
 
         //SEND DATA ADMINISTRADOR WITH CLASS SERIALIZABLE
