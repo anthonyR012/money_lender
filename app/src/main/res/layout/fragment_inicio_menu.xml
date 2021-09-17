@@ -14,15 +14,17 @@
             android:id="@+id/header_title"
             android:layout_width="match_parent"
             android:layout_height="208dp"
-            android:background="@drawable/rectangle_1__2_"
-            android:orientation="vertical">
+            android:background="#797d1a"
+            android:elevation="6dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/photoUserSingin"
                 android:layout_width="150dp"
                 android:layout_height="160dp"
-                android:src="@drawable/money"
-               android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:src="@drawable/money" />
 
             <TextView
                 android:id="@+id/nameUserSingin"
@@ -37,244 +39,244 @@
         </LinearLayout>
 
 
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_below="@+id/header_title"
-        android:id="@+id/gridContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="4dp"
-        app:columnCount="2"
-        app:orientation="horizontal"
-        app:rowCount="3">
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header_title"
+            android:padding="4dp"
+            app:columnCount="2"
+            app:orientation="horizontal"
+            app:rowCount="3">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardRegistrar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
-            android:foreground="?android:selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRegistrar"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="vertical">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-                <ImageView
-                    android:id="@+id/fbt_registrar"
-                    android:layout_width="110dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/comprension" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/btn_crear"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardAdministrar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
-            android:foreground="?android:selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
+                    <ImageView
+                        android:id="@+id/fbt_registrar"
+                        android:layout_width="110dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/comprension" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_crear"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAdministrar"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="vertical">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-                <ImageView
-                    android:id="@+id/fbt_administrar"
-                    android:layout_width="110dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/presupuesto" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/btn_administra"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardPerfil"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
-            android:foreground="?android:selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
+                    <ImageView
+                        android:id="@+id/fbt_administrar"
+                        android:layout_width="110dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/presupuesto" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_administra"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPerfil"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="vertical">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-                <ImageView
-                    android:id="@+id/fbt_pefil"
-                    android:layout_width="110dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/usuario" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/btn_perfil"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardPrestamo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
-            android:foreground="?android:selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
+                    <ImageView
+                        android:id="@+id/fbt_pefil"
+                        android:layout_width="110dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/usuario" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_perfil"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPrestamo"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="vertical">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-                <ImageView
-                    android:id="@+id/fbt_prestamo"
-                    android:layout_width="110dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/prestamo" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/btn_prestamo"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardAcerca"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
-            android:foreground="?android:selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
+                    <ImageView
+                        android:id="@+id/fbt_prestamo"
+                        android:layout_width="110dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/prestamo" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_prestamo"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAcerca"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="vertical">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-                <ImageView
-                    android:id="@+id/fbt_acerca"
-                    android:layout_width="110dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/acerca" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/btn_acerca"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardHistorial"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="10dp"
-            android:foreground="?android:selectableItemBackground"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="6dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1">
+                    <ImageView
+                        android:id="@+id/fbt_acerca"
+                        android:layout_width="110dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/acerca" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_acerca"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardHistorial"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:orientation="vertical">
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:foreground="?android:selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="6dp"
+                app:layout_columnWeight="1"
+                app:layout_rowWeight="1">
 
-                <ImageView
-android:id="@+id/fbt_historial"
-                    android:layout_width="110dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/historial_medico" />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/btn_hitorial"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:orientation="vertical">
 
-    </androidx.gridlayout.widget.GridLayout>
+                    <ImageView
+                        android:id="@+id/fbt_historial"
+                        android:layout_width="110dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/historial_medico" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/btn_hitorial"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.gridlayout.widget.GridLayout>
     </RelativeLayout>
 </ScrollView>

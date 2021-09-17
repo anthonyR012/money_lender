@@ -18,9 +18,8 @@ import android.view.ViewGroup;
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
-import com.anthony.moneylender.databinding.FragmentForgotPassBinding;
+import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.ClientePrestamos;
 import com.anthony.moneylender.databinding.FragmentHistorialBinding;
-import com.anthony.moneylender.databinding.FragmentPerfilAmdBinding;
 import com.anthony.moneylender.models.PrincipalMenuModel.Lender.HistorialLenderModel;
 import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -60,14 +59,16 @@ public class HistorialLenderFragment extends Fragment {
         binding.recycleItemLenders.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         
         model.setDb(db);
-        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<Prestamos>>() {
+        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<ClientePrestamos>>() {
             @Override
-            public void onChanged(List<Prestamos> prestamos) {
-                AdapterRecycleLender adapter = new AdapterRecycleLender(prestamos);
-                Log.i("Count", String.valueOf(adapter.getItemCount()));
+            public void onChanged(List<ClientePrestamos> clientePrestamos) {
+                AdapterRecycleLender adapter = new AdapterRecycleLender(clientePrestamos);
+
                 binding.recycleItemLenders.setAdapter(adapter);
             }
         });
+
+
     }
 
     private void eventClick() {

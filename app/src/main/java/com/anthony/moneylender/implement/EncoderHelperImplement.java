@@ -29,9 +29,14 @@ public class EncoderHelperImplement {
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static Bitmap decode(String str){
+
+        int alto = 100;
+        int ancho = 100;
+
         decoder = Base64.getDecoder();
         decoded = decoder.decode(str);
-        imagen = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
+        Bitmap foto = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
+        imagen = Bitmap.createScaledBitmap(foto,alto,ancho,true);
         return  imagen;
 
     }

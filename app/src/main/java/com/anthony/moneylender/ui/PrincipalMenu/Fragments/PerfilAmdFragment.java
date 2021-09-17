@@ -141,7 +141,6 @@ public class PerfilAmdFragment extends Fragment {
 
     private void eventClick() {
         binding.photoAdministrator.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
 
