@@ -119,7 +119,7 @@
         app:layout_constraintTop_toBottomOf="@+id/saveCredential2" />
 
     <Button
-        android:id="@+id/deleteAccount"
+        android:id="@+id/restableChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"

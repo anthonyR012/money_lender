@@ -48,6 +48,7 @@ public class PrincipalMenu extends AppCompatActivity implements IcomunicaFragmen
         registrarFragment.setArguments(argsAdministrator);
          initialFragment.setArguments(argsAdministrator);
         perfilFragment.setArguments(argsAdministrator);
+        acercaFragment.setArguments(argsAdministrator);
 
          getSupportFragmentManager().beginTransaction().replace(R.id.contenedorFragmentMenu
          ,initialFragment).commit();

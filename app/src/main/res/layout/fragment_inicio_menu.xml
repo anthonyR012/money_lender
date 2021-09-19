@@ -10,40 +10,39 @@
         android:layout_height="match_parent">
 
 
-        <LinearLayout
-            android:id="@+id/header_title"
+        <FrameLayout
+            android:id="@+id/frameHeader"
             android:layout_width="match_parent"
-            android:layout_height="208dp"
-            android:background="#797d1a"
-            android:elevation="6dp"
-            android:orientation="vertical"
-            android:layout_marginBottom="15dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:layout_marginBottom="40dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/photoUserSingin"
-                android:layout_width="150dp"
-                android:layout_height="160dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_gravity="center"
-                android:src="@drawable/money" />
+                android:src="@drawable/perfiluser" />
 
-            <TextView
-                android:id="@+id/nameUserSingin"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/line"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:text="LG"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="30dp"
+                android:elevation="6dp"
+                android:src="@drawable/line" />
 
-        </LinearLayout>
 
+        </FrameLayout>
 
         <androidx.gridlayout.widget.GridLayout
             android:id="@+id/gridContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/header_title"
+            android:layout_below="@+id/frameHeader"
             android:padding="4dp"
             app:columnCount="2"
             app:orientation="horizontal"
@@ -57,12 +56,14 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
                 android:foreground="?android:selectableItemBackground"
+                app:cardBackgroundColor="#CED9EB"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
                 app:layout_rowWeight="1">
 
                 <LinearLayout
+                    android:background="#CED9EB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -73,7 +74,7 @@
                         android:layout_width="110dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/comprension" />
+                        android:background="@drawable/cliente" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -81,13 +82,14 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_crear"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="#CED9EB"
                 android:id="@+id/cardAdministrar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -111,7 +113,7 @@
                         android:layout_width="110dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/presupuesto" />
+                        android:background="@drawable/pago" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -119,8 +121,8 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_administra"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -132,6 +134,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#CED9EB"
                 android:foreground="?android:selectableItemBackground"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
@@ -149,7 +152,7 @@
                         android:layout_width="110dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/usuario" />
+                        android:background="@drawable/perfil" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -157,8 +160,8 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_perfil"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -174,6 +177,7 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
+                app:cardBackgroundColor="#CED9EB"
                 app:layout_rowWeight="1">
 
                 <LinearLayout
@@ -187,7 +191,7 @@
                         android:layout_width="110dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/prestamo" />
+                        android:background="@drawable/prestar" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -195,8 +199,8 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_prestamo"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -212,6 +216,7 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
+                app:cardBackgroundColor="#CED9EB"
                 app:layout_rowWeight="1">
 
                 <LinearLayout
@@ -225,7 +230,7 @@
                         android:layout_width="110dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/acerca" />
+                        android:background="@drawable/acercade" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -233,8 +238,8 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_acerca"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -250,6 +255,7 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
+                app:cardBackgroundColor="#CED9EB"
                 app:layout_rowWeight="1">
 
                 <LinearLayout
@@ -263,7 +269,7 @@
                         android:layout_width="110dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/historial_medico" />
+                        android:background="@drawable/historial" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -271,8 +277,8 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_hitorial"
                         android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

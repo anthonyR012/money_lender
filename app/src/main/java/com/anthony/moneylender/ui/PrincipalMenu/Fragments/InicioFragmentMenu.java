@@ -51,8 +51,7 @@ public class InicioFragmentMenu extends Fragment {
             imagenAdapter= root.findViewById(R.id.photoUserSingin);
             imagenAdapter.setImageBitmap(photo);
         }
-        TextView e = root.findViewById(R.id.nameUserSingin);
-        e.setText(user.getNameUser());
+
 
         fbtAdministrar = root.findViewById(R.id.cardAdministrar);
         fbtRegistrar = root.findViewById(R.id.cardRegistrar);

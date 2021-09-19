@@ -5,7 +5,9 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -23,6 +25,7 @@ import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
+import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.implement.SerializableUserImplement;
 import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
 import com.anthony.moneylender.ui.login.optiones.Optiones;
@@ -53,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         loginButton = findViewById(R.id.login);
 
 
-
+        loadPreferences(usernameEditText,passwordEditText);
 
 
 
@@ -132,6 +135,20 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
                 }
             }
         });
+
+    }
+
+    private void loadPreferences(EditText usernameEditText, EditText passwordEditText) {
+
+        SharedPreferences sharedPref;
+
+        sharedPref = this.getSharedPreferences("credentiales", Context.MODE_PRIVATE);
+        String user = sharedPref.getString("user","No Exist");
+        String pass = sharedPref.getString("pass","No Exist");
+
+        if (!user.equals("No Exist") && !pass.equals("No Exist")){
+            loginViewModel.login(user,pass,db);
+        }
 
     }
 

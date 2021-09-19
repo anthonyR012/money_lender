@@ -19,14 +19,13 @@ public class SingViewModel extends ViewModel {
     private MutableLiveData<Integer> registroFormState = new MutableLiveData<>();
     private SecurityPassImplement encriptacion;
     private byte[] datoEncriptado;
-    private int countId,countEmail;
-    private int dato;
+    int countId,countEmail;
     private ThreadImplement segundoHilo;
 
     public int insertData(Administrador administrador, DataBaseMoney db, String passSinCifrado){
 
-        dato =verifyState(administrador,db,passSinCifrado);
-        return dato;
+        int state =verifyState(administrador,db,passSinCifrado);
+        return state;
     }
 
 
@@ -43,7 +42,7 @@ public class SingViewModel extends ViewModel {
         segundoHilo = new ThreadImplement(db,administrador);
         segundoHilo.start();
 
-        dato = R.string.complete_Insert;
+        int state = R.string.complete_Insert;
         try {
             Thread.sleep(1000);
 
@@ -51,7 +50,7 @@ public class SingViewModel extends ViewModel {
             e.printStackTrace();
         }
 
-    return dato;
+    return state;
     }
 
 
