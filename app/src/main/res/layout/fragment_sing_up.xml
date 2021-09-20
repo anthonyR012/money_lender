@@ -126,7 +126,7 @@
             android:enabled="false"
             android:text="@string/SingUp"
             android:textColor="#fff"
-            app:backgroundTint="#1454A3"
+            app:backgroundTint="@color/primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passUser" />

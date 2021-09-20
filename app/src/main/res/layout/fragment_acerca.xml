@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="#8CB7FF"
     tools:context=".ui.PrincipalMenu.Fragments.AcercaFragment" >
 
     <Button
@@ -17,7 +17,8 @@
         android:text="@string/btn_save_account"
         android:textSize="15sp"
         android:textAlignment="center"
-        app:backgroundTint="#72AA71"
+        android:background="@drawable/shadow"
+        app:backgroundTint="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -37,7 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/sulphur_light"
         android:text="Crear Reporte Semanal"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -53,6 +53,7 @@
         android:layout_marginEnd="5dp"
         android:fontFamily="@font/titanone_regular"
         android:text="@string/title_preferences"
+        android:textColor="@color/primary_text"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
@@ -76,7 +77,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="52dp"
-        android:fontFamily="@font/sulphur_light"
         android:text="Guardar Credenciales"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -128,7 +128,8 @@
         android:fontFamily="@font/sulphur_light"
         android:text="@string/btn_delete_account"
         android:textSize="15sp"
-        app:backgroundTint="#C64E4E"
+        android:background="@drawable/shadow"
+        app:backgroundTint="@color/accent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 

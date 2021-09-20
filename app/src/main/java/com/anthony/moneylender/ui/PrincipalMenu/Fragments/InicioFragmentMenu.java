@@ -23,15 +23,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anthony.moneylender.R;
+import com.anthony.moneylender.databinding.FragmentAcercaBinding;
+import com.anthony.moneylender.databinding.FragmentInicioMenuBinding;
 import com.anthony.moneylender.implement.SerializableUserImplement;
 import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
+import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
+import com.anthony.moneylender.ui.login.LoginActivity;
 
 public class InicioFragmentMenu extends Fragment {
 
     private SerializableUserImplement user;
     private Bitmap photo;
+    private FragmentInicioMenuBinding binding;
     private ImageView imagenAdapter;
     private CardView fbtAdministrar,fbtRegistrar,fbtPefil,
             fbtPrestamo,fbtAcerca,fbtHistorial;
@@ -42,9 +48,10 @@ public class InicioFragmentMenu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_inicio_menu, container, false);
-         user = (SerializableUserImplement) getArguments().getSerializable("INFORMATION");
 
+         user = (SerializableUserImplement) getArguments().getSerializable("INFORMATION");
+        binding = FragmentInicioMenuBinding.inflate(inflater, container, false);
+        root = binding.getRoot();
         if(user.getPhotoUser()!= null){
             photo = decode(user.getPhotoUser());
 
@@ -79,6 +86,16 @@ public class InicioFragmentMenu extends Fragment {
 
     private void eventsClick() {
 
+        binding.closeActionLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
        fbtAdministrar.setOnClickListener(new View.OnClickListener() {
            @Override

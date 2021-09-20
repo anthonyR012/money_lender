@@ -63,7 +63,7 @@
         android:enabled="false"
         android:text="@string/action_sign_in"
         android:textColor="#fff"
-        app:backgroundTint="#1454A3"
+        app:backgroundTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

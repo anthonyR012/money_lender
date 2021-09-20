@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow_ligth"
+    android:background="#8CB7FF"
     tools:context=".ui.PrincipalMenu.Fragments.Client.HistorialClientFragment" >
 
     <ImageButton
@@ -40,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:textColor="@color/primary_text"
         android:fontFamily="@font/titanone_regular"
         android:text="@string/title_hello_administrator"
 
@@ -72,14 +73,9 @@
         android:id="@+id/Listacliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#CA9202"
-        android:shadowDx="5"
-        android:shadowDy="3"
-        android:shadowRadius="3"
-        android:shadowColor="@color/black"
+        android:textColor="@color/primary_text"
         android:layout_marginStart="30dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/sulphur_light"
         android:text="Lista Cliente"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,8 +83,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleItemClients"
-        android:layout_width="0dp"
-        android:layout_height="410dp"
+        android:layout_width="404dp"
+        android:layout_height="300dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="5dp"

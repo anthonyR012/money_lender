@@ -15,12 +15,9 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        try {
-            TimeUnit.SECONDS.sleep(1);
+
             startActivity(new Intent(this, LoginActivity.class));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
     }
 }

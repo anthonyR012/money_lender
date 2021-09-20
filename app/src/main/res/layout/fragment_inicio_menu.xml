@@ -25,6 +25,13 @@
                 android:layout_gravity="center"
                 android:src="@drawable/perfiluser" />
 
+            <ImageView
+                android:id="@+id/closeActionLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/cerrarsesion" />
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/line"
                 android:layout_width="wrap_content"
@@ -63,10 +70,10 @@
                 app:layout_rowWeight="1">
 
                 <LinearLayout
-                    android:background="#CED9EB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
+                    android:background="#CED9EB"
                     android:orientation="vertical">
 
                     <ImageView
@@ -89,7 +96,6 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                app:cardBackgroundColor="#CED9EB"
                 android:id="@+id/cardAdministrar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -97,6 +103,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
                 android:foreground="?android:selectableItemBackground"
+                app:cardBackgroundColor="#CED9EB"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
@@ -134,8 +141,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="#CED9EB"
                 android:foreground="?android:selectableItemBackground"
+                app:cardBackgroundColor="#CED9EB"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
@@ -174,10 +181,10 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
                 android:foreground="?android:selectableItemBackground"
+                app:cardBackgroundColor="#CED9EB"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
-                app:cardBackgroundColor="#CED9EB"
                 app:layout_rowWeight="1">
 
                 <LinearLayout
@@ -213,10 +220,10 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
                 android:foreground="?android:selectableItemBackground"
+                app:cardBackgroundColor="#CED9EB"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
-                app:cardBackgroundColor="#CED9EB"
                 app:layout_rowWeight="1">
 
                 <LinearLayout
@@ -252,10 +259,10 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="10dp"
                 android:foreground="?android:selectableItemBackground"
+                app:cardBackgroundColor="#CED9EB"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="6dp"
                 app:layout_columnWeight="1"
-                app:cardBackgroundColor="#CED9EB"
                 app:layout_rowWeight="1">
 
                 <LinearLayout
