@@ -78,7 +78,7 @@
 
                     <ImageView
                         android:id="@+id/fbt_registrar"
-                        android:layout_width="110dp"
+                        android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/cliente" />
@@ -89,7 +89,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_crear"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/accent"
                         android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -117,7 +117,7 @@
 
                     <ImageView
                         android:id="@+id/fbt_administrar"
-                        android:layout_width="110dp"
+                        android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/pago" />
@@ -128,7 +128,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_administra"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/accent"
                         android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -156,7 +156,7 @@
 
                     <ImageView
                         android:id="@+id/fbt_pefil"
-                        android:layout_width="110dp"
+                        android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/perfil" />
@@ -167,7 +167,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_perfil"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/accent"
                         android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -195,8 +195,8 @@
 
                     <ImageView
                         android:id="@+id/fbt_prestamo"
-                        android:layout_width="110dp"
-                        android:layout_height="80dp"
+                        android:layout_width="100dp"
+                        android:layout_height="82dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/prestar" />
 
@@ -206,7 +206,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_prestamo"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/accent"
                         android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -234,7 +234,7 @@
 
                     <ImageView
                         android:id="@+id/fbt_acerca"
-                        android:layout_width="110dp"
+                        android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/acercade" />
@@ -245,7 +245,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_acerca"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/accent"
                         android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -273,7 +273,7 @@
 
                     <ImageView
                         android:id="@+id/fbt_historial"
-                        android:layout_width="110dp"
+                        android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/historial" />
@@ -284,7 +284,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="@string/btn_hitorial"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/accent"
                         android:textSize="19sp"
                         android:textStyle="bold" />
                 </LinearLayout>
