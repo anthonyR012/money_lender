@@ -5,9 +5,12 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
@@ -21,7 +24,7 @@ import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.ClientePrestamos;
 import com.anthony.moneylender.databinding.FragmentHistorialBinding;
 import com.anthony.moneylender.models.PrincipalMenuModel.Lender.HistorialLenderModel;
-import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
+
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -31,8 +34,6 @@ public class HistorialLenderFragment extends Fragment {
 
     private FloatingActionButton return_,administra_,about_ ;
     private View root;
-    private IcomunicaFragments interfacesFragment;
-    private Activity activity;
     private FragmentHistorialBinding binding;
     private HistorialLenderModel model;
     private DataBaseMoney db;
@@ -44,13 +45,23 @@ public class HistorialLenderFragment extends Fragment {
         binding = FragmentHistorialBinding.inflate(inflater, container, false);
         root = binding.getRoot();
         model = new ViewModelProvider(this).get(HistorialLenderModel.class);
+
+        return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         db = DataBaseMoney.getInstance(getContext());
         return_ = root.findViewById(R.id.Fb_returnIcon);
         administra_ = root.findViewById(R.id.Fb_userAdministra);
         about_ = root.findViewById(R.id.Fb_aboutApplication);
-        eventClick();
+
+        final NavController navController = Navigation.findNavController(view);
+
+        eventsClick(navController);
         adapterItems();
-        return root;
     }
 
     private void adapterItems() {
@@ -59,46 +70,37 @@ public class HistorialLenderFragment extends Fragment {
         binding.recycleItemLenders.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         
         model.setDb(db);
-        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<ClientePrestamos>>() {
-            @Override
-            public void onChanged(List<ClientePrestamos> clientePrestamos) {
-                AdapterRecycleLender adapter = new AdapterRecycleLender(clientePrestamos);
-
-                binding.recycleItemLenders.setAdapter(adapter);
-            }
-        });
-
+        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<Prestamos>>() {
+                    @Override
+                    public void onChanged(List<Prestamos> prestamos) {
+                        AdapterRecycleLender adapter = new AdapterRecycleLender(prestamos);
+                        binding.recycleItemLenders.setAdapter(adapter);
+                    }
+                });
 
     }
 
-    private void eventClick() {
-
+    private void eventsClick(NavController navController) {
         return_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfacesFragment.inicio();
+                navController.navigate(R.id.action_historialLenderFragment_to_inicioFragmentMenu);
             }
         });
         administra_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfacesFragment.AdministrarClient();
+                navController.navigate(R.id.action_historialLenderFragment_to_historialClientFragment3);
             }
         });
         about_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfacesFragment.Acerca();
+                navController.navigate(R.id.action_historialLenderFragment_to_acercaFragment);
             }
         });
+
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if(context instanceof Activity){
-            activity = (Activity) context;
-            interfacesFragment = (IcomunicaFragments) activity;
-        }
-    }
+
 }

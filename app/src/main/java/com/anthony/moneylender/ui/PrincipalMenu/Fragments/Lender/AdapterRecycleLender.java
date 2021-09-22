@@ -11,19 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.anthony.moneylender.R;
+import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.ClientePrestamos;
 
 import java.util.List;
 
 public class AdapterRecycleLender extends RecyclerView.Adapter<AdapterRecycleLender.ViewHolder> {
-    private List<ClientePrestamos> prestamos;
+    private List<Prestamos> prestamos;
     public View view;
     int i = 0;
     int sizePrestamos;
     private Integer clientePrestamo = null;
     private boolean condicion = false;
 
-    public AdapterRecycleLender(List<ClientePrestamos> prestamos) {
+    public AdapterRecycleLender(List<Prestamos> prestamos) {
         this.prestamos = prestamos;
     }
 
@@ -39,47 +40,47 @@ public class AdapterRecycleLender extends RecyclerView.Adapter<AdapterRecycleLen
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        if(clientePrestamo != null) {
-
-           position = clientePrestamo;
-        }
-
-       sizePrestamos = prestamos.get(position).prestamos.size();
-//        while (i < sizePrestamos) {
-
-//        Log.i("position", "prestamo"+prestamos.get(0).prestamos.get(0).getCantidad_prestamo()+" cliete "+prestamos.get(0).cliente.getNombre_cliente());
-//        Log.i("position", "prestamo"+prestamos.get(0).prestamos.get(1).getCantidad_prestamo()+" cliete "+prestamos.get(0).cliente.getNombre_cliente());
-//        Log.i("position", "prestamo"+prestamos.get(1).prestamos.get(0).getCantidad_prestamo()+" cliete "+prestamos.get(1).cliente.getNombre_cliente());
-
-//Log.i("carga","");
-
-            Log.i("position", "prestamo "+i+"cliete pone"+position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+//        if(clientePrestamo != null) {
+//
+//           position = clientePrestamo;
+//        }
+//
+//       sizePrestamos = prestamos.get(position).prestamos.size();
+////        while (i < sizePrestamos) {
+//
+////        Log.i("position", "prestamo"+prestamos.get(0).prestamos.get(0).getCantidad_prestamo()+" cliete "+prestamos.get(0).cliente.getNombre_cliente());
+////        Log.i("position", "prestamo"+prestamos.get(0).prestamos.get(1).getCantidad_prestamo()+" cliete "+prestamos.get(0).cliente.getNombre_cliente());
+////        Log.i("position", "prestamo"+prestamos.get(1).prestamos.get(0).getCantidad_prestamo()+" cliete "+prestamos.get(1).cliente.getNombre_cliente());
+//
+////Log.i("carga","");
+//
+//            Log.i("position", "prestamo "+i+"cliete pone"+position);
 //            holder.AsignarDatos(prestamos.get(position), i);
 //        }else{
 //            Log.i("position", "prestamo "+i+"cliete psec"+clientePrestamo);
 //            holder.AsignarDatos(prestamos.get(clientePrestamo), i);
 //        }
 
-        if(sizePrestamos>1 && i+1 < sizePrestamos) {
-            if (clientePrestamo==null){
-                clientePrestamo = position;
-            }
-
-//            condicion = true;
-        }else{
-            clientePrestamo = null;
-//            condicion = false;
-        }
-
-        if(i==sizePrestamos-1){
-            i=0;
-
-//            holder.AsignarDatos(prestamos.get(position), i);
-        }else{
-
-            i++;
-        }
+//        if(sizePrestamos>1 && i+1 < sizePrestamos) {
+//            if (clientePrestamo==null){
+//                clientePrestamo = position;
+//            }
+//
+////            condicion = true;
+//        }else{
+//            clientePrestamo = null;
+////            condicion = false;
+//        }
+//
+//        if(i==sizePrestamos-1){
+//            i=0;
+//
+////            holder.AsignarDatos(prestamos.get(position), i);
+//        }else{
+//
+//            i++;
+//        }
 
 //        (i<sizePrestamos)? int o=0; :i=0;
 
@@ -93,21 +94,14 @@ public class AdapterRecycleLender extends RecyclerView.Adapter<AdapterRecycleLen
 
 
 //        }
-
+        holder.AsignarDatos(prestamos.get(position));
     }
 
 
 
     @Override
     public int getItemCount() {
-
-        int stateSize = prestamos.size(),i=0,size=0;
-        while (i < stateSize){
-            size = size + prestamos.get(i).prestamos.size();
-            i++;
-        }
-
-        return size;
+        return prestamos.size();
     }
 
 
@@ -129,15 +123,16 @@ public class AdapterRecycleLender extends RecyclerView.Adapter<AdapterRecycleLen
             }
 
 
-            public void AsignarDatos(ClientePrestamos client,   int i) {
 
-                        amountItem.setText(""+client.prestamos.get(i).getCantidad_prestamo());
-                        dateInitItem.setText(client.prestamos.get(i).getFecha_prestamo_init());
-                        dataFinItem.setText(client.prestamos.get(i).getFecha_prestamo_fin());
-                        clientLender.setText(client.cliente.getNombre_cliente()+" "+client.cliente.getApellido_cliente());
+            public void AsignarDatos(Prestamos prestamos) {
+
+
+                amountItem.setText("$ "+Math.round(prestamos.getTotal_prestamo()));
+                dateInitItem.setText(prestamos.getFecha_prestamo_init());
+                dataFinItem.setText(prestamos.getFecha_prestamo_fin());
+                clientLender.setText("Plazo "+prestamos.getPlazo_prestamo());
 
 
             }
-
         }
 }

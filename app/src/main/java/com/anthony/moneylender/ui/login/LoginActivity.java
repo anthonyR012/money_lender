@@ -2,12 +2,15 @@ package com.anthony.moneylender.ui.login;
 
 import android.app.Activity;
 
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -16,8 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.transition.Fade;
+import android.transition.Transition;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -31,6 +37,7 @@ import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
 import com.anthony.moneylender.ui.login.optiones.Optiones;
 
 import java.io.Serializable;
+import java.time.Duration;
 
 public class LoginActivity extends AppCompatActivity implements Serializable {
 
@@ -77,6 +84,7 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         });
 
         loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onChanged(@Nullable LoginResult loginResult) {
                 if (loginResult == null) {
@@ -177,8 +185,17 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
     }
 
 
-
+    @SuppressWarnings("unchecked")
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void updateUiWithUser(LoggedInUserView model) {
+//        final int DURATION_TRANSITION = 1;
+//        Transition transition = new Fade(Fade.OUT);
+//        transition.setDuration(DURATION_TRANSITION);
+//        transition.setInterpolator(new DecelerateInterpolator());
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            getWindow().setExitTransition(transition);
+//        }
 
         Intent intent = new Intent(LoginActivity.this, PrincipalMenu.class);
         Bundle bundle = new Bundle();
@@ -189,7 +206,9 @@ public class LoginActivity extends AppCompatActivity implements Serializable {
         bundle.putSerializable("INFORMATION",administrador);
         intent.putExtras(bundle);
         startActivity(intent);
+
         finish();
+
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {

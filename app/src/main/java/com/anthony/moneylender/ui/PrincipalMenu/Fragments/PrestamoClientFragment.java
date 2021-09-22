@@ -1,60 +1,39 @@
 package com.anthony.moneylender.ui.PrincipalMenu.Fragments;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.SearchView;
-import android.widget.TableLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Cliente;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
 import com.anthony.moneylender.databinding.FragmentPrestamoClientBinding;
-import com.anthony.moneylender.databinding.FragmentRegistrarClientBinding;
-import com.anthony.moneylender.implement.MySnackbar;
-import com.anthony.moneylender.models.PrincipalMenuModel.RegisterClientModel;
+import com.anthony.moneylender.implement.MySnackbarImplement;
 import com.anthony.moneylender.models.PrincipalMenuModel.RegisterNewLender;
-import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
-import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 
-import org.w3c.dom.Text;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 
 public class PrestamoClientFragment extends Fragment implements androidx.appcompat.widget.SearchView.OnQueryTextListener {
@@ -63,13 +42,13 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
     private FragmentPrestamoClientBinding binding;
     private View root;
     private RegisterNewLender viewModel;
-    private IcomunicaFragments interfacesFragment;
+
     private Activity activity;
     private DataBaseMoney db;
     private LiveData<List<Cliente>> clientLiveData;
     private ArrayAdapter adaptador;
     private ArrayList clientList;
-    private MySnackbar mySnackbar;
+    private MySnackbarImplement mySnackbarImplement;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,15 +57,24 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
         binding = FragmentPrestamoClientBinding.inflate(inflater, container, false);
         root = binding.getRoot();
         viewModel = new ViewModelProvider(this).get(RegisterNewLender.class);
-        db = DataBaseMoney.getInstance(getContext());
-        return_ = root.findViewById(R.id.Fb_returnIcon);
-        administra_ = root.findViewById(R.id.Fb_userAdministra);
-        about_ = root.findViewById(R.id.Fb_aboutApplication);
-        eventClick();
-        changeDataSearch();
-
 
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        db = DataBaseMoney.getInstance(getContext());
+        return_ = view.findViewById(R.id.Fb_returnIcon);
+        administra_ = view.findViewById(R.id.Fb_userAdministra);
+        about_ = view.findViewById(R.id.Fb_aboutApplication);
+
+        final NavController navController = Navigation.findNavController(view);
+
+        eventsClick(navController);
+
+        changeDataSearch();
     }
 
     private void changeDataSearch() {
@@ -96,11 +84,26 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
         binding.searchClient.setOnQueryTextListener(this);
     }
 
-    private void eventClick() {
+    private void eventsClick(NavController navController) {
 
-
-
-
+        return_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_prestamoClientFragment_to_inicioFragmentMenu);
+            }
+        });
+        administra_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_prestamoClientFragment_to_historialClientFragment3);
+            }
+        });
+        about_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_prestamoClientFragment_to_historialClientFragment3);
+            }
+        });
         binding.btnAcceptLender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,36 +134,19 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
                             "Activo", Integer.parseInt(binding.idClientLenderAssigned.getText().toString()));
 
                     viewModel.insertNewLender(prestamos,db);
-                    mySnackbar = new MySnackbar("Registro Completo",root);
+                    mySnackbarImplement = new MySnackbarImplement("Registro Completo",root);
 
                     }else{
-                         mySnackbar = new MySnackbar("Rellene todos los campos",root);
+                         mySnackbarImplement = new MySnackbarImplement("Rellene todos los campos",root);
                     }
                 }else {
-                   mySnackbar = new MySnackbar("Seleccione el cliente",root);
+                   mySnackbarImplement = new MySnackbarImplement("Seleccione el cliente",root);
                 }
 
             }
         });
 
-        return_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.inicio();
-            }
-        });
-        administra_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.AdministrarClient();
-            }
-        });
-        about_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.Acerca();
-            }
-        });
+
     }
 
 
@@ -179,14 +165,7 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
         return ((amountLender * interestLender)/100) + amountLender;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if(context instanceof Activity){
-            activity = (Activity) context;
-            interfacesFragment = (IcomunicaFragments) activity;
-        }
-    }
+
 
 
     @Override

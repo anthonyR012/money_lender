@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movil_navegation"
+    app:startDestination="@id/inicioFragmentMenu">
+
+    <fragment
+        android:id="@+id/inicioFragmentMenu"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.InicioFragmentMenu"
+        android:label="fragment_inicio_menu"
+        tools:layout="@layout/fragment_inicio_menu" >
+        <action
+            android:id="@+id/action_inicioFragmentMenu_to_acercaFragment"
+            app:destination="@id/acercaFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/decelerate_interpolator"
+            app:popExitAnim="@android:anim/accelerate_interpolator" />
+        <action
+            android:id="@+id/action_inicioFragmentMenu_to_historialLenderFragment"
+            app:destination="@id/historialLenderFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/decelerate_interpolator"
+            app:popExitAnim="@android:anim/accelerate_interpolator" />
+        <action
+            android:id="@+id/action_inicioFragmentMenu_to_prestamoClientFragment"
+            app:destination="@id/prestamoClientFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/decelerate_interpolator"
+            app:popExitAnim="@android:anim/accelerate_interpolator" />
+        <action
+            android:id="@+id/action_inicioFragmentMenu_to_historialClientFragment"
+            app:destination="@id/historialClientFragment3"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/decelerate_interpolator"
+            app:popExitAnim="@android:anim/accelerate_interpolator" />
+        <action
+            android:id="@+id/action_inicioFragmentMenu_to_perfilAmdFragment"
+            app:destination="@id/perfilAmdFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/decelerate_interpolator"
+            app:popExitAnim="@android:anim/accelerate_interpolator" />
+        <action
+            android:id="@+id/action_inicioFragmentMenu_to_perfilAmdFragment2"
+            app:destination="@id/perfilAmdFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/decelerate_interpolator"
+            app:popExitAnim="@android:anim/accelerate_interpolator" />
+        <action
+            android:id="@+id/action_inicioFragmentMenu_to_registrarClientFragment"
+            app:destination="@id/registrarClientFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/decelerate_interpolator"
+            app:popExitAnim="@android:anim/accelerate_interpolator" />
+    </fragment>
+
+
+
+
+    <fragment
+        android:id="@+id/acercaFragment"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.AcercaFragment"
+        android:label="fragment_acerca"
+        tools:layout="@layout/fragment_acerca" >
+        <action
+            android:id="@+id/action_acercaFragment_to_inicioFragmentMenu"
+            app:destination="@id/inicioFragmentMenu"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_acercaFragment_to_historialClientFragment3"
+            app:destination="@id/historialClientFragment3"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+    </fragment>
+    <fragment
+        android:id="@+id/historialClientFragment3"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.Client.HistorialClientFragment"
+        android:label="fragment_administrar_client"
+        tools:layout="@layout/fragment_administrar_client" >
+        <action
+            android:id="@+id/action_historialClientFragment3_to_inicioFragmentMenu"
+            app:destination="@id/inicioFragmentMenu"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_historialClientFragment3_to_acercaFragment"
+            app:destination="@id/acercaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailLender"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.Lender.DetailLender"
+        android:label="fragment_detail_lender"
+        tools:layout="@layout/fragment_detail_lender" />
+    <fragment
+        android:id="@+id/detailClient"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.Client.DetailClient"
+        android:label="fragment_detalle_client"
+        tools:layout="@layout/fragment_detalle_client" />
+    <fragment
+        android:id="@+id/perfilAmdFragment"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.PerfilAmdFragment"
+        android:label="fragment_perfil_amd"
+        tools:layout="@layout/fragment_perfil_amd" >
+        <action
+            android:id="@+id/action_perfilAmdFragment_to_inicioFragmentMenu"
+            app:destination="@id/inicioFragmentMenu"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_perfilAmdFragment_to_acercaFragment"
+            app:destination="@id/acercaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_perfilAmdFragment_to_historialClientFragment3"
+            app:destination="@id/historialClientFragment3"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+    </fragment>
+    <fragment
+        android:id="@+id/historialLenderFragment"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.Lender.HistorialLenderFragment"
+        android:label="fragment_historial"
+        tools:layout="@layout/fragment_historial" >
+        <action
+            android:id="@+id/action_historialLenderFragment_to_inicioFragmentMenu"
+            app:destination="@id/inicioFragmentMenu"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_historialLenderFragment_to_acercaFragment"
+            app:destination="@id/acercaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_historialLenderFragment_to_historialClientFragment3"
+            app:destination="@id/historialClientFragment3"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+    </fragment>
+    <fragment
+        android:id="@+id/prestamoClientFragment"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.PrestamoClientFragment"
+        android:label="fragment_prestamo_client"
+        tools:layout="@layout/fragment_prestamo_client" >
+        <action
+            android:id="@+id/action_prestamoClientFragment_to_inicioFragmentMenu"
+            app:destination="@id/inicioFragmentMenu"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_prestamoClientFragment_to_acercaFragment"
+            app:destination="@id/acercaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_prestamoClientFragment_to_historialClientFragment3"
+            app:destination="@id/historialClientFragment3"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+    </fragment>
+    <fragment
+        android:id="@+id/registrarClientFragment"
+        android:name="com.anthony.moneylender.ui.PrincipalMenu.Fragments.RegistrarClientFragment"
+        android:label="fragment_registrar_client"
+        tools:layout="@layout/fragment_registrar_client" >
+        <action
+            android:id="@+id/action_registrarClientFragment_to_inicioFragmentMenu"
+            app:destination="@id/inicioFragmentMenu"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_registrarClientFragment_to_acercaFragment"
+            app:destination="@id/acercaFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+        <action
+            android:id="@+id/action_registrarClientFragment_to_historialClientFragment3"
+            app:destination="@id/historialClientFragment3"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/cycle_interpolator"
+            app:popExitAnim="@android:anim/cycle_interpolator"/>
+    </fragment>
+</navigation>

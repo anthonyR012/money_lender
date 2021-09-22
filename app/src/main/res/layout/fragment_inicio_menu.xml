@@ -50,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/frameHeader"
+            android:layout_marginBottom="10dp"
             android:padding="4dp"
             app:columnCount="2"
             app:orientation="horizontal"
@@ -70,6 +71,7 @@
                 app:layout_rowWeight="1">
 
                 <LinearLayout
+                    android:id="@+id/linearRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -110,6 +112,7 @@
                 app:layout_rowWeight="1">
 
                 <LinearLayout
+                    android:id="@+id/linearPay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -149,6 +152,7 @@
                 app:layout_rowWeight="1">
 
                 <LinearLayout
+                    android:id="@+id/linearPerfil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -188,6 +192,7 @@
                 app:layout_rowWeight="1">
 
                 <LinearLayout
+                    android:id="@+id/linearLender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -227,6 +232,7 @@
                 app:layout_rowWeight="1">
 
                 <LinearLayout
+                    android:id="@+id/linearSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -266,6 +272,7 @@
                 app:layout_rowWeight="1">
 
                 <LinearLayout
+                    android:id="@+id/linearHistorial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"

@@ -11,10 +11,13 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.KeyEvent;
@@ -29,62 +32,95 @@ import com.anthony.moneylender.R;
 import com.anthony.moneylender.databinding.FragmentAcercaBinding;
 import com.anthony.moneylender.databinding.FragmentInicioMenuBinding;
 import com.anthony.moneylender.implement.SerializableUserImplement;
-import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
+
+import com.anthony.moneylender.ui.PrincipalMenu.Fragments.Client.HistorialClientFragment;
+import com.anthony.moneylender.ui.PrincipalMenu.Fragments.Lender.HistorialLenderFragment;
 import com.anthony.moneylender.ui.PrincipalMenu.PrincipalMenu;
 import com.anthony.moneylender.ui.login.LoginActivity;
 
 public class InicioFragmentMenu extends Fragment {
 
-    private SerializableUserImplement user;
+
     private Bitmap photo;
     private FragmentInicioMenuBinding binding;
     private ImageView imagenAdapter;
-    private CardView fbtAdministrar,fbtRegistrar,fbtPefil,
-            fbtPrestamo,fbtAcerca,fbtHistorial;
     private View root;
-    private IcomunicaFragments interfacesFragment;
-    private Activity activity;
-    @RequiresApi(api = Build.VERSION_CODES.O)
+    private SerializableUserImplement administrador;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-         user = (SerializableUserImplement) getArguments().getSerializable("INFORMATION");
+
         binding = FragmentInicioMenuBinding.inflate(inflater, container, false);
         root = binding.getRoot();
-        if(user.getPhotoUser()!= null){
-            photo = decode(user.getPhotoUser());
 
-            imagenAdapter= root.findViewById(R.id.photoUserSingin);
-            imagenAdapter.setImageBitmap(photo);
-        }
-
-
-        fbtAdministrar = root.findViewById(R.id.cardAdministrar);
-        fbtRegistrar = root.findViewById(R.id.cardRegistrar);
-        fbtPefil = root.findViewById(R.id.cardPerfil);
-        fbtPrestamo = root.findViewById(R.id.cardPrestamo);
-        fbtAcerca = root.findViewById(R.id.cardAcerca);
-        fbtHistorial = root.findViewById(R.id.cardHistorial);
-
-        eventsClick();
 
         return root;
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if(context instanceof Activity){
-            activity = (Activity) context;
-            interfacesFragment = (IcomunicaFragments) activity;
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Bundle bundle = getActivity().getIntent().getExtras();
+        administrador = (SerializableUserImplement) bundle.getSerializable("INFORMATION");
+        if(administrador.getPhotoUser() != null){
+            photo = decode(administrador.getPhotoUser());
+            imagenAdapter = root.findViewById(R.id.photoUserSingin);
+            imagenAdapter.setImageBitmap(photo);
+
         }
+        final NavController navController = Navigation.findNavController(view);
+        eventsClick(navController);
     }
 
+    private void eventsClick(NavController navController) {
+
+        binding.linearRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_inicioFragmentMenu_to_registrarClientFragment);
+            }
+        });
+
+        binding.linearPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_inicioFragmentMenu_to_historialClientFragment);
+
+            }
+        });
+
+        binding.linearPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_inicioFragmentMenu_to_perfilAmdFragment2);
+            }
+        });
+        binding.linearLender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_inicioFragmentMenu_to_prestamoClientFragment);
+            }
+        });
+        binding.linearSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_inicioFragmentMenu_to_acercaFragment);
+            }
+        });
 
 
+        binding.linearHistorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_inicioFragmentMenu_to_historialLenderFragment);
+            }
+        });
 
-    private void eventsClick() {
 
         binding.closeActionLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,41 +133,6 @@ public class InicioFragmentMenu extends Fragment {
             }
         });
 
-       fbtAdministrar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-interfacesFragment.AdministrarClient();
-           }
-       });
-       fbtAcerca.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-interfacesFragment.Acerca();
-           }
-       });
-       fbtHistorial.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-interfacesFragment.Historial();
-           }
-       });
-       fbtPrestamo.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-                interfacesFragment.PrestamoClient();
-           }
-       });
-       fbtRegistrar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               interfacesFragment.RegistrarClient();
-           }
-       });
-       fbtPefil.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-                interfacesFragment.PerfilAdm();
-           }
-       });
+
     }
 }

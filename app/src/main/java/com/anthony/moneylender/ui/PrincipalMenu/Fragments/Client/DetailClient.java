@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.anthony.moneylender.R;
-import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
+
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 
@@ -20,7 +20,7 @@ public class DetailClient extends Fragment {
 
     private FloatingActionButton return_,administra_,about_ ;
     private View root;
-    private IcomunicaFragments interfacesFragment;
+
     private Activity activity;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,32 +37,8 @@ public class DetailClient extends Fragment {
 
     private void eventClick() {
 
-        return_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.inicio();
-            }
-        });
-        administra_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.AdministrarClient();
-            }
-        });
-        about_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.Acerca();
-            }
-        });
+
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if(context instanceof Activity){
-            activity = (Activity) context;
-            interfacesFragment = (IcomunicaFragments) activity;
-        }
-    }
+
 }

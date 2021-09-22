@@ -1,6 +1,5 @@
 package com.anthony.moneylender.ui.PrincipalMenu.Fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,59 +7,81 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.databinding.FragmentAcercaBinding;
-import com.anthony.moneylender.databinding.FragmentPerfilAmdBinding;
-import com.anthony.moneylender.implement.MySnackbar;
+import com.anthony.moneylender.implement.MySnackbarImplement;
 import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.implement.SerializableUserImplement;
-import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
+
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 
 public class AcercaFragment extends Fragment {
+
     private View root;
-    private IcomunicaFragments interfacesFragment;
-    private Activity activity;
-    private FloatingActionButton return_,administra_,about_ ;
+    private FloatingActionButton return_,administra_ ;
     private FragmentAcercaBinding binding;
     private SerializableUserImplement user;
-    private MySnackbar mySnackbar;
+    private MySnackbarImplement mySnackbarImplement;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentAcercaBinding.inflate(inflater, container, false);
         root = binding.getRoot();
-        user = (SerializableUserImplement) getArguments().getSerializable("INFORMATION");
-        return_ = root.findViewById(R.id.Fb_returnIcon);
-        administra_ = root.findViewById(R.id.Fb_userAdministra);
-        about_ = root.findViewById(R.id.Fb_aboutApplication);
 
-        eventsClick();
+
+
         return root;
 
     }
 
-    private void eventsClick() {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Bundle bundle = getActivity().getIntent().getExtras();
+        user = (SerializableUserImplement) bundle.getSerializable("INFORMATION");
+
+        return_ = view.findViewById(R.id.Fb_returnIcon);
+        administra_ = view.findViewById(R.id.Fb_userAdministra);
+
+        final NavController navController = Navigation.findNavController(view);
+
+        eventsClick(navController);
+
+    }
+
+    private void eventsClick(NavController navController) {
+    return_.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            navController.navigate(R.id.action_acercaFragment_to_inicioFragmentMenu);
+        }
+    });
+        administra_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_acercaFragment_to_historialClientFragment3);
+            }
+        });
 
     binding.saveAccount.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (binding.checkSaveReports.isChecked() || binding.checkSaveCredential.isChecked()){
                 verifyBoxSelect();
-                mySnackbar = new MySnackbar("Preferencias registradas",root);
+                mySnackbarImplement = new MySnackbarImplement("Preferencias registradas",root);
             }else{
-                mySnackbar = new MySnackbar("No ha selecciónado nada",root);
+                mySnackbarImplement = new MySnackbarImplement("No ha selecciónado nada",root);
 
             }
 
@@ -71,7 +92,7 @@ public class AcercaFragment extends Fragment {
         @Override
         public void onClick(View v) {
             reinstatement();
-            mySnackbar = new MySnackbar("Restablecimiento completo",root);
+            mySnackbarImplement = new MySnackbarImplement("Restablecimiento completo",root);
         }
     });
         binding.iconFacce.setOnClickListener(new View.OnClickListener() {
@@ -103,24 +124,7 @@ public class AcercaFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        return_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.inicio();
-            }
-        });
-        administra_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.AdministrarClient();
-            }
-        });
-        about_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.Acerca();
-            }
-        });
+
     }
 
     private void reinstatement() {
@@ -154,12 +158,5 @@ public class AcercaFragment extends Fragment {
 
 
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if(context instanceof Activity){
-            activity = (Activity) context;
-            interfacesFragment = (IcomunicaFragments) activity;
-        }
-    }
+
 }

@@ -4,7 +4,6 @@ import static com.anthony.moneylender.implement.EncoderHelperImplement.decode;
 import static com.anthony.moneylender.implement.EncoderHelperImplement.encode;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,24 +17,24 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
-import com.anthony.moneylender.dataAccessRoom.Entidades.Administrador;
 import com.anthony.moneylender.databinding.FragmentPerfilAmdBinding;
-import com.anthony.moneylender.databinding.FragmentRegistrarClientBinding;
-import com.anthony.moneylender.implement.MySnackbar;
+import com.anthony.moneylender.implement.MySnackbarImplement;
 import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.implement.SerializableUserImplement;
-import com.anthony.moneylender.ui.PrincipalMenu.IcomunicaFragments;
+
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.io.FileNotFoundException;
@@ -46,8 +45,6 @@ public class PerfilAmdFragment extends Fragment {
 
     private FloatingActionButton return_,administra_,about_ ;
     private View root;
-    private IcomunicaFragments interfacesFragment;
-    private Activity activity;
     private FragmentPerfilAmdBinding binding;
     private SerializableUserImplement user;
     private String passAdministrator;
@@ -58,9 +55,9 @@ public class PerfilAmdFragment extends Fragment {
     private String[] parts;
     private SecurityPassImplement security;
     private ActivityResultLauncher<Intent> imagenUp;
-    private MySnackbar mySnackbar;
+    private MySnackbarImplement mySnackbarImplement;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,6 +69,7 @@ public class PerfilAmdFragment extends Fragment {
         imagenUp = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
@@ -93,20 +91,32 @@ public class PerfilAmdFragment extends Fragment {
                 });
 
 
+
+        return root;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         //INICIALIZACION DE DATOS Y ARGUMENTOS BUDLE DEL ADMINISTRADOR
-        user = (SerializableUserImplement) getArguments().getSerializable("INFORMATION");
+
         db = DataBaseMoney.getInstance(getContext());
-        return_ = root.findViewById(R.id.Fb_returnIcon);
-        administra_ = root.findViewById(R.id.Fb_userAdministra);
-        about_ = root.findViewById(R.id.Fb_aboutApplication);
+        return_ = view.findViewById(R.id.Fb_returnIcon);
+        administra_ = view.findViewById(R.id.Fb_userAdministra);
+        about_ = view.findViewById(R.id.Fb_aboutApplication);
+
+        Bundle bundle = getActivity().getIntent().getExtras();
+
+        user = (SerializableUserImplement) bundle.getSerializable("INFORMATION");
+        final NavController navController = Navigation.findNavController(view);
         //INSERTE IMAGEN SI EXISTE.
 
         photo = user.getPhotoUser();
 
-
-        eventClick();
+        eventClick(navController);
         setArgumentsHint(user);
-        return root;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -139,7 +149,26 @@ public class PerfilAmdFragment extends Fragment {
     }
 
 
-    private void eventClick() {
+    private void eventClick(NavController navController) {
+
+        return_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_perfilAmdFragment_to_inicioFragmentMenu);
+            }
+        });
+        administra_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_perfilAmdFragment_to_historialClientFragment3);
+            }
+        });
+        about_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_perfilAmdFragment_to_acercaFragment);
+            }
+        });
         binding.photoAdministrator.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -168,10 +197,10 @@ public class PerfilAmdFragment extends Fragment {
                             db.interfaceDao().updateAdministrator(nombre,apellido,email,pass,photo,user.getIdUser());
                         }
                     });
-                    mySnackbar = new MySnackbar("Actualizacion completa",root);
+                    mySnackbarImplement = new MySnackbarImplement("Actualización completa",root);
 
                 }else{
-                    mySnackbar = new MySnackbar("No ha realizado ningun cambio",root);
+                    mySnackbarImplement = new MySnackbarImplement("No ha realizado ningun cambio",root);
                 }
 
 
@@ -179,24 +208,7 @@ public class PerfilAmdFragment extends Fragment {
             }
         });
 
-        return_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.inicio();
-            }
-        });
-        administra_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.AdministrarClient();
-            }
-        });
-        about_.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                interfacesFragment.Acerca();
-            }
-        });
+
     }
 
 
@@ -228,12 +240,5 @@ public class PerfilAmdFragment extends Fragment {
 
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if(context instanceof Activity){
-            activity = (Activity) context;
-            interfacesFragment = (IcomunicaFragments) activity;
-        }
-    }
+
 }

@@ -3,22 +3,16 @@ package com.anthony.moneylender.ui.login.optiones.fragments;
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 import static android.text.InputType.TYPE_CLASS_TEXT;
 import static android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD;
-import static android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
-import static android.text.InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD;
 
 import android.app.AlertDialog;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,16 +23,12 @@ import android.widget.TextView;
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.databinding.FragmentForgotPassBinding;
-import com.anthony.moneylender.databinding.FragmentSingUpBinding;
-import com.anthony.moneylender.implement.MySnackbar;
+import com.anthony.moneylender.implement.MySnackbarImplement;
 import com.anthony.moneylender.implement.RepositoryImplement;
-import com.anthony.moneylender.implement.SecurityPassImplement;
 import com.anthony.moneylender.models.login.optiones.ForguetViewModel;
 import com.anthony.moneylender.ui.login.LoginActivity;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.concurrent.TimeUnit;
 
 
 public class ForgotPass extends Fragment {
@@ -114,7 +104,7 @@ public class ForgotPass extends Fragment {
             viewModel.send(repositoryImplement);
         }else{
 
-            MySnackbar mySnackbar = new MySnackbar("Correo no registrado",root);
+            MySnackbarImplement mySnackbarImplement = new MySnackbarImplement("Correo no registrado",root);
 
 
         }

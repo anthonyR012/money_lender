@@ -6,11 +6,11 @@ import android.view.View;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
-public class MySnackbar  {
+public class MySnackbarImplement {
     Snackbar snackbar;
     String message;
     View viewState;
-    public MySnackbar(String message, View context){
+    public MySnackbarImplement(String message, View context){
         this.viewState = context;
         this.message = message;
         displaySnack();

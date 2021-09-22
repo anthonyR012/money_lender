@@ -113,8 +113,7 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/inputborder"
         android:ems="10"
-
-        android:hint="Fecha Prestamo"
+        android:hint="Fecha Limite"
         android:inputType="date"
         android:minHeight="48dp"
         android:padding="@dimen/padding_input_create"
