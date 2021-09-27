@@ -2,10 +2,12 @@ package com.anthony.moneylender.ui.PrincipalMenu.Fragments.Lender;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,10 +25,12 @@ import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.ClientePrestamos;
 import com.anthony.moneylender.databinding.FragmentHistorialBinding;
+import com.anthony.moneylender.implement.OrderDataImplement;
 import com.anthony.moneylender.models.PrincipalMenuModel.Lender.HistorialLenderModel;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -68,12 +72,31 @@ public class HistorialLenderFragment extends Fragment {
         
         
         binding.recycleItemLenders.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        
+
         model.setDb(db);
-        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<Prestamos>>() {
+        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<ClientePrestamos>>() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
-                    public void onChanged(List<Prestamos> prestamos) {
-                        AdapterRecycleLender adapter = new AdapterRecycleLender(prestamos);
+                    public void onChanged(List<ClientePrestamos> prestamos) {
+
+                        //CREAMOS LISTA CON LOS DATOS NECESARIOS DE LA VISTA HOLDER
+
+                        List<OrderDataImplement> listClientPrestamo = new ArrayList<>();
+
+                        for (int i = 0;i<prestamos.size();i++){
+                            for (int f = 0;f<prestamos.get(i).prestamos.size();f++){
+                                OrderDataImplement implement = new OrderDataImplement(Integer.parseInt((""+Math.round(prestamos.get(i).prestamos.get(f).getTotal_prestamo()))),
+                                        prestamos.get(i).prestamos.get(f).getFecha_prestamo_init(),
+                                        prestamos.get(i).prestamos.get(f).getFecha_prestamo_fin(),
+                                        prestamos.get(i).cliente.getNombre_cliente(),
+                                        prestamos.get(i).prestamos.get(f).getEstado_prestamo());
+
+                                listClientPrestamo.add(implement);
+
+                            }
+                        }
+                        //PASAMOS LISTA POR PARAMETRO AL ADAPTADOR
+                        AdapterRecycleLender adapter = new AdapterRecycleLender(listClientPrestamo);
                         binding.recycleItemLenders.setAdapter(adapter);
                     }
                 });

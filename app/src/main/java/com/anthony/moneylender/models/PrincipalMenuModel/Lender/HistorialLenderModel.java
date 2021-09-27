@@ -7,24 +7,24 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
-import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
+import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.ClientePrestamos;
 
 import java.util.List;
 
 public class HistorialLenderModel extends ViewModel {
 
     private DataBaseMoney db;
-    private MutableLiveData<List<Prestamos>> prestamos;
-    private List<Prestamos> lender;
+    private MutableLiveData<List<ClientePrestamos>> prestamos;
+    private List<ClientePrestamos> lender;
 
     public void setDb(DataBaseMoney db){
         this.db = db;
     }
 
 
-    public LiveData<List<Prestamos>> getPrestamos() {
+    public LiveData<List<ClientePrestamos>> getPrestamos() {
         if (prestamos == null) {
-            prestamos = new MutableLiveData<List<Prestamos>>();
+            prestamos = new MutableLiveData<List<ClientePrestamos>>();
             loadPrestamos();
         }
         return prestamos;

@@ -30,8 +30,8 @@ public class EncoderHelperImplement {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static Bitmap decode(String str){
 
-        int alto = 100;
-        int ancho = 100;
+        int alto = 130;
+        int ancho = 150;
 
         decoder = Base64.getDecoder();
         decoded = decoder.decode(str);

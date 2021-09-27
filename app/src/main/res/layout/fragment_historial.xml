@@ -8,19 +8,6 @@
     tools:context=".ui.PrincipalMenu.Fragments.Lender.HistorialLenderFragment" >
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/titanone_regular"
-        android:text="FECHA"
-        android:textColor="@color/primary"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/amountLenderTitle"
-        app:layout_constraintTop_toBottomOf="@+id/searchLender" />
-
-    <TextView
         android:id="@+id/titleHistorylLender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,65 +38,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleHistorylLender" />
 
-    <TextView
-        android:id="@+id/amountLenderTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:textColor="@color/primary_text"
-        android:fontFamily="@font/titanone_regular"
-        android:text="PRESTAMO"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchLender" />
-
-
-    <ImageButton
-        android:id="@+id/moveLeftLender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="60dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Detailender"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycleItemLenders"
-        app:srcCompat="@drawable/moveleft" />
-
-    <ImageButton
-        android:id="@+id/moveRigthLender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="60dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Detailender"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycleItemLenders"
-        app:srcCompat="@drawable/moverigth" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleItemLenders"
-        android:layout_width="380dp"
-        android:layout_height="244dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/searchLender"
         tools:listitem="@layout/item_lender" />
 
     <FrameLayout
-        android:elevation="5dp"
+        android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
