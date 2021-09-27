@@ -24,17 +24,20 @@ import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Prestamos;
 import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.ClientePrestamos;
+import com.anthony.moneylender.dataAccessRoom.Entidades.Relacion.PrestamosClientes;
 import com.anthony.moneylender.databinding.FragmentHistorialBinding;
 import com.anthony.moneylender.implement.OrderDataImplement;
 import com.anthony.moneylender.models.PrincipalMenuModel.Lender.HistorialLenderModel;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class HistorialLenderFragment extends Fragment {
+public class HistorialLenderFragment extends Fragment implements androidx.appcompat.widget.SearchView.OnQueryTextListener{
 
     private FloatingActionButton return_,administra_,about_ ;
     private View root;
@@ -74,32 +77,35 @@ public class HistorialLenderFragment extends Fragment {
         binding.recycleItemLenders.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
 
         model.setDb(db);
-        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<ClientePrestamos>>() {
-                    @RequiresApi(api = Build.VERSION_CODES.N)
-                    @Override
-                    public void onChanged(List<ClientePrestamos> prestamos) {
+        model.getPrestamos().observe(getViewLifecycleOwner(), new Observer<List<PrestamosClientes>>() {
+            @Override
+            public void onChanged(List<PrestamosClientes> prestamosClientes) {
+                //CREAMOS LISTA CON LOS DATOS NECESARIOS DE LA VISTA HOLDER
+                List<OrderDataImplement> listClientPrestamo = new ArrayList<>();
 
-                        //CREAMOS LISTA CON LOS DATOS NECESARIOS DE LA VISTA HOLDER
+                for (int i = 0;i< prestamosClientes.size();i++){
+                    for (int e =0;e<prestamosClientes.get(i).clientes.size();e++){
+                    OrderDataImplement implement = new OrderDataImplement
+                            (Integer.parseInt((""+Math.round(prestamosClientes.get(i).prestamos.getTotal_prestamo()))),
+                                        prestamosClientes.get(i).prestamos.getFecha_prestamo_init(),
+                                        prestamosClientes.get(i).prestamos.getFecha_prestamo_fin(),
+                                        prestamosClientes.get(i).clientes.get(e).getNombre_cliente(),
+                                        prestamosClientes.get(i).prestamos.getEstado_prestamo());
 
-                        List<OrderDataImplement> listClientPrestamo = new ArrayList<>();
+                        listClientPrestamo.add(implement);
 
-                        for (int i = 0;i<prestamos.size();i++){
-                            for (int f = 0;f<prestamos.get(i).prestamos.size();f++){
-                                OrderDataImplement implement = new OrderDataImplement(Integer.parseInt((""+Math.round(prestamos.get(i).prestamos.get(f).getTotal_prestamo()))),
-                                        prestamos.get(i).prestamos.get(f).getFecha_prestamo_init(),
-                                        prestamos.get(i).prestamos.get(f).getFecha_prestamo_fin(),
-                                        prestamos.get(i).cliente.getNombre_cliente(),
-                                        prestamos.get(i).prestamos.get(f).getEstado_prestamo());
+                    }
 
-                                listClientPrestamo.add(implement);
 
-                            }
-                        }
-                        //PASAMOS LISTA POR PARAMETRO AL ADAPTADOR
+                }
+
+//                PASAMOS LISTA POR PARAMETRO AL ADAPTADOR
                         AdapterRecycleLender adapter = new AdapterRecycleLender(listClientPrestamo);
                         binding.recycleItemLenders.setAdapter(adapter);
-                    }
-                });
+
+
+            }
+        });
 
     }
 
@@ -126,4 +132,19 @@ public class HistorialLenderFragment extends Fragment {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        searchLenderForUser();
+        return false;
+    }
+
+    private void searchLenderForUser() {
+
+
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        return false;
+    }
 }
