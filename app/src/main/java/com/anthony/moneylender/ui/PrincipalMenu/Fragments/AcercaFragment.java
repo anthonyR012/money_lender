@@ -77,6 +77,8 @@ public class AcercaFragment extends Fragment {
     binding.saveAccount.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
+            //VERIFICA CASILLAS SELECCIONADAS
             if (binding.checkSaveReports.isChecked() || binding.checkSaveCredential.isChecked()){
                 verifyBoxSelect();
                 mySnackbarImplement = new MySnackbarImplement("Preferencias registradas",root);
@@ -91,10 +93,13 @@ public class AcercaFragment extends Fragment {
     binding.restableChange.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            //CLICK QUE DESEA RESTABLECER LA INFORMACION
             reinstatement();
             mySnackbarImplement = new MySnackbarImplement("Restablecimiento completo",root);
         }
     });
+
+    //EVENTOS CLICK DE BOTONES PARA REDES SOCIALES
         binding.iconFacce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,12 +133,15 @@ public class AcercaFragment extends Fragment {
     }
 
     private void reinstatement() {
+        //LIMPIA ARCHIVO DE PREFERENCIA
         Context context = getActivity();
         SharedPreferences.Editor editor = context.getSharedPreferences("credentiales", Context.MODE_PRIVATE).edit();
         editor.clear().apply();
     }
 
     private void verifyBoxSelect() {
+
+        //CREA ARCHIVO PREFERENCIA CON LAS CASILLAS SELECCIONADAS
         Context context = getActivity();
         SharedPreferences sharedPref;
         sharedPref = context.getSharedPreferences("credentiales",Context.MODE_PRIVATE);

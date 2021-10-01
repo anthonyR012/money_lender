@@ -65,7 +65,7 @@ public class PerfilAmdFragment extends Fragment {
         binding = FragmentPerfilAmdBinding.inflate(inflater, container, false);
         root = binding.getRoot();
 
-        //datos bitmap seleccionados de la galeria
+        //DATOS BITMAP SELECCIONADOS EN LA GALAERIA
         imagenUp = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -121,6 +121,7 @@ public class PerfilAmdFragment extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void loaderImg(ActivityResultLauncher<Intent> imagenUp) {
+        //CARGA IMAGEN Y LA SETEA
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         gallery.setType("image/*");
         imagenUp.launch(gallery);
@@ -128,6 +129,8 @@ public class PerfilAmdFragment extends Fragment {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+
+    //SETEA INFORMACION DE ADMINISTRACION EN EL HINT DE LOS INPUT
     private void setArgumentsHint(SerializableUserImplement user) {
         if (photo != null) {
             binding.photoAdministrator.setImageBitmap(decode(user.getPhotoUser()));
@@ -173,7 +176,7 @@ public class PerfilAmdFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-
+                //SI LE DA CLICK A LA FOTO
                 loaderImg(imagenUp);
 
             }
@@ -182,10 +185,10 @@ public class PerfilAmdFragment extends Fragment {
         binding.btnUpdateAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //FUNCION QUE VERIFICA LOS DATOS DE ENTRADA
 
                 checkData();
-
+                //VERIFICA DATOS DE LOS INPUT
                 if (!binding.nameAdmin.getText().toString().isEmpty() ||
                 !binding.emailAdmin.getText().toString().isEmpty() ||
                 !binding.passAdmin.getText().toString().isEmpty()){
@@ -213,6 +216,8 @@ public class PerfilAmdFragment extends Fragment {
 
 
     private void checkData() {
+        //DEPENDE DE LOS QUE SE QUIERA ACTUALIZAR, GUARDA EN VARIABLES
+        //SI HAY CAMPOS VACIOS, ES PORQUE NO QUIERE ACTUALIZAR
         if (binding.nameAdmin.getText().toString().isEmpty()){
             parts = user.getNameUser().split(" ");
             nombre = parts[0];
@@ -233,6 +238,7 @@ public class PerfilAmdFragment extends Fragment {
 
             pass = user.getPass();
         }else{
+            //FUNCION QUE CIFRA CONTRASEÑA
             security = new SecurityPassImplement();
             pass = security.cifra(binding.passAdmin.getText().toString());
         }

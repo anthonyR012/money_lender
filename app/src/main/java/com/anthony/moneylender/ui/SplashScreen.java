@@ -23,16 +23,18 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        //PRIMER LAYOUT INFLADO CON UNA ANIMACIÓN LOTTI
             animation = findViewById(R.id.mySplash);
             startAnimation();
 
     }
 
     private void startAnimation() {
+//        FUNCION QUE INSTANCIA EL JSON DE RAW CON LA ANIMACION
         animation.setAnimation(R.raw.workinganimation);
         animation.playAnimation();
         Intent intent = new Intent(this,LoginActivity.class);
-
+        //EVENTO AL FINALIZAR LA ANIMACION
         animation.addAnimatorListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {

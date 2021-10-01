@@ -65,8 +65,11 @@ public class InicioFragmentMenu extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        //RECIBE BUDLE QUE ENVIAN DESDE LOGIN, CON DATOS DE ADMINISTRADOR
         Bundle bundle = getActivity().getIntent().getExtras();
         administrador = (SerializableUserImplement) bundle.getSerializable("INFORMATION");
+        //INSERTE IMAGEN DE PERFIL SI EXISTE
         if(administrador.getPhotoUser() != null){
             photo = decode(administrador.getPhotoUser());
             imagenAdapter = root.findViewById(R.id.photoUserSingin);

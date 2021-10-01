@@ -128,6 +128,7 @@ public class SingUp extends Fragment {
     }
 
     private void loaderImg(ActivityResultLauncher<Intent> imagenUp) {
+        //CARGA IMAGEN Y LA INSERTA
         Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         gallery.setType("image/*");
         imagenUp.launch(gallery);
@@ -135,6 +136,7 @@ public class SingUp extends Fragment {
     }
 
     private void observerLetterEditText() {
+        //EJECUTA LA FUNCION DE LOGIN DATA CHANGE CADA VEZ QUE CAMBIA ALGO EN LOS INPUT
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -166,6 +168,9 @@ public class SingUp extends Fragment {
         viewModel.getRegistroFormState().observe( getActivity(), new Observer<Integer>() {
             @Override
             public void onChanged(@Nullable Integer stateRegistro) {
+
+                //VERIFICA ESTADO DEL REGISTRO, UNICAMENTE QUEDA EL BOTON DISPONIBLE,
+                //CUANDO DEVUELVE "COMPLETO"
                 if (stateRegistro == null) {
                     return;
                 }

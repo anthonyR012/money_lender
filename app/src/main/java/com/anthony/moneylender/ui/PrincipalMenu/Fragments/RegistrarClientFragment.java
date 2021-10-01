@@ -90,6 +90,8 @@ public class RegistrarClientFragment extends Fragment {
         binding.btnCreateClient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //CUANDO PRECIONA ENVIAR, CREA OBJETO CLIENTE QUE INSERTA EN BBDD POR MEDIO DE MODEL
                 client = new Cliente(binding.nameClient.getText().toString(),binding.lastClient.getText().toString(),
                         binding.addressClient.getText().toString(),binding.phoneClient.getText().toString(),administrador.getIdUser());
                 viewModel.insertData(client,db);

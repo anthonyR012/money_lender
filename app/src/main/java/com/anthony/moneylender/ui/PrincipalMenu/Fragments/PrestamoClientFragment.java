@@ -107,15 +107,20 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
         binding.btnAcceptLender.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                //VERIFICA CAMPOS LLENOS
                 if (!binding.idClientLenderAssigned.getText().toString().isEmpty()) {
                     if (!binding.termDues.getText().toString().isEmpty() &&
                         !binding.interest.getText().toString().isEmpty() &&
                         !binding.amountLender.getText().toString().isEmpty() &&
                         !binding.dues.getText().toString().isEmpty()){
-
+                    //DECLARA VARIABLES LOCALES
                     int interestLender,countDuesLender;
                     double amountLender,duesLender;
                     String termDues;
+                    //INICIALIZA
+
                     termDues = binding.termDues.getText().toString();
                     interestLender = Integer.parseInt(binding.interest.getText().toString());
                     amountLender = Double.parseDouble(binding.amountLender.getText().toString().replace(".,","").trim());
@@ -175,13 +180,13 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
 
     @Override
     public boolean onQueryTextChange(String newText) {
-
+        //CADA VEZ QUE BUSQUE EJECUTA FUNCION
         searchUserToLender();
         return false;
     }
 
     private void searchUserToLender() {
-
+    //VERIFICA STRING Y EJECUTA CONSULTA
         if (binding.searchClient.getQuery().toString().length() > 0){
             clientLiveData = db.interfaceDao().getClient(binding.searchClient.getQuery().toString());
 
@@ -189,6 +194,7 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
                 @Override
                 public void onChanged(List<Cliente> clientes) {
                     if (clientes.size() > 0){
+                        //BUSCA CLIENTE
                         createListSearch(clientes);
                     }else{
 
@@ -198,6 +204,7 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
                 }
             });
         }else{
+            //LIMPIA DATOS
             cleanInterface();
 
         }
@@ -209,6 +216,10 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
         clientLiveData = null;
         clientList = null;
         binding.arrayClient.setVisibility(View.GONE);
+        if (binding.searchClient.getQuery().length() > 0) {
+            binding.searchClient.setQuery("", false);
+        }
+         binding.searchClient.clearFocus();
 
 
     }
@@ -222,12 +233,12 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
             clientList.add(clientes.get(i).getNombre_cliente()+" "+clientes.get(i).getApellido_cliente());
         }
 
-
+        //ADAPTA POR MEDIO DEL LAYOUT
         adaptador =new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,clientList);
         binding.arrayClient.setVisibility(View.VISIBLE);
         binding.arrayClient.setAdapter(adaptador);
 
-
+        //SI SE DA CLICK EN UN RESULTADO EJECUTA FUNCION
         binding.arrayClient.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -237,16 +248,10 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
         });
 
 
-
-
-
-
-
-
     }
 
     private void setearData(List<Cliente> clientes, String itemAtPosition) {
-
+        //FUNCION QUE BUSCA Y SETEA RESULTADO EN LAS CASILLAS
         for(int i = 0;i < clientes.size(); i++){
             String condicion = clientes.get(i).getNombre_cliente()+" "+clientes.get(i).getApellido_cliente();
 
@@ -261,10 +266,8 @@ public class PrestamoClientFragment extends Fragment implements androidx.appcomp
             }
 
         }
-        binding.searchClient.setQuery("",false);
-        binding.arrayClient.setVisibility(View.GONE);
-        clientLiveData = null;
-        clientList = null;
+        //LIMPIA NUEVAMENTE
+        cleanInterface();
 
     }
 

@@ -34,20 +34,14 @@ public class PrincipalMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal_menu);
 
-//        final int DURATION_TRANSITION = 1;
-//        Fade fadein = new Fade(Fade.IN);
-//        fadein.setDuration(DURATION_TRANSITION);
-//        fadein.setInterpolator(new DecelerateInterpolator());
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setEnterTransition(fadein);
-//        }
 
     }
 
 
     @Override
     public void onBackPressed() {
+
+        //CUANDO SE PRECIONE ATRAS, INSTANCIA BULDER QUE PREGUNTA SI DESEA SALIR DE APLICACIÓN
         AlertDialog.Builder builder = new AlertDialog.Builder(PrincipalMenu.this);
                 builder.setMessage("¿Deseas salir de la aplicación?")
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {

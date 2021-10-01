@@ -7,149 +7,152 @@
     android:layout_marginBottom="5dp"
     android:padding="4dp">
 
- <androidx.constraintlayout.widget.ConstraintLayout
-     android:layout_width="match_parent"
-     android:layout_margin="3dp"
-     android:background="@drawable/inputborderitems"
-     android:layout_height="wrap_content"
-     android:elevation="2dp"
-     tools:ignore="MissingConstraints">
-    <LinearLayout
-        android:id="@+id/contenedor"
-        android:layout_width="0dp"
-        android:background="@drawable/btn_accept_border_item"
-        android:backgroundTint="#005ecb"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_margin="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/inputborderitems"
+        android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/iconStatistics"
-            android:layout_width="41dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="4dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Detailender"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_users"
-            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,VectorDrawableCompat" />
-
-
-        <TextView
-            android:id="@+id/clientLenderDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Nombre"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/iconStatistics"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/amountDetailLender"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/contenedor"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_accept_border_item"
+            android:backgroundTint="#005ecb"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/iconStatistics"
+                android:layout_width="41dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Detailender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_users"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,VectorDrawableCompat" />
+
+
+            <TextView
+                android:id="@+id/clientLenderDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Nombre"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/iconStatistics"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/amountDetailLender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="15dp"
+                android:gravity="end"
+                android:text="$ Cantidad"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/h"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="2dp"
+            android:text="Fecha inicial:"
+            android:textColor="@color/secondary_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contenedor"
+            app:layout_constraintVertical_bias="0.111" />
+
+        <TextView
+
+            android:id="@+id/dateInitDetailLender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toRightOf="@+id/h"
+            android:text="Inicial"
+            android:textColor="@color/primary_text"
+            app:layout_constraintBottom_toTopOf="@+id/dateFinDetailLender"
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/h"
+            app:layout_constraintTop_toBottomOf="@+id/contenedor" />
+
+
+        <TextView
+            android:id="@+id/dd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/h"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:text="Fecha limite:"
+            android:textColor="@color/secondary_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/h" />
+
+        <TextView
+            android:id="@+id/dateFinDetailLender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dateInitDetailLender"
+            android:layout_marginStart="16dp"
+            android:layout_toRightOf="@+id/dd"
+            android:text="Fin"
+            android:textColor="@color/primary_text"
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/dd"
+            app:layout_constraintTop_toBottomOf="@+id/dateInitDetailLender" />
+
+        <TextView
+            android:id="@+id/stateLenderItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
             android:gravity="end"
-            android:text="$ Cantidad"
-            android:layout_marginRight="15dp"
+            android:text="Estado"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toBottomOf="@+id/contenedor" />
 
-
-    </LinearLayout>
-
-
-     <TextView
-         android:id="@+id/h"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentStart="true"
-         android:layout_alignParentTop="true"
-         android:layout_marginStart="16dp"
-         android:layout_marginBottom="2dp"
-         android:text="Fecha inicial:"
-         android:textColor="@color/secondary_text"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/contenedor"
-         app:layout_constraintVertical_bias="0.111" />
-
-     <TextView
-
-         android:id="@+id/dateInitDetailLender"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginStart="15dp"
-         android:layout_marginBottom="2dp"
-         android:layout_toRightOf="@+id/h"
-         android:text="Inicial"
-         android:textColor="@color/primary_text"
-         app:layout_constraintBottom_toTopOf="@+id/dateFinDetailLender"
-         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintStart_toEndOf="@+id/h"
-         app:layout_constraintTop_toBottomOf="@+id/contenedor" />
-
-
-
-     <TextView
-         android:id="@+id/dd"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/h"
-         android:layout_alignParentStart="true"
-         android:layout_marginStart="16dp"
-         android:text="Fecha limite:"
-         android:textColor="@color/secondary_text"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/h" />
-
-     <TextView
-         android:id="@+id/dateFinDetailLender"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/dateInitDetailLender"
-         android:layout_marginStart="16dp"
-         android:layout_toRightOf="@+id/dd"
-         android:text="Fin"
-         android:textColor="@color/primary_text"
-         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-         app:layout_constraintHorizontal_bias="0.0"
-         app:layout_constraintStart_toEndOf="@+id/dd"
-         app:layout_constraintTop_toBottomOf="@+id/dateInitDetailLender" />
-
-     <TextView
-         android:id="@+id/stateLenderItem"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentEnd="true"
-         android:layout_marginEnd="15dp"
-         android:gravity="end"
-         android:text="Estado"
-         android:textColor="@color/white"
-         android:textSize="20sp"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.49"
-         app:layout_constraintStart_toStartOf="@+id/guideline7"
-         app:layout_constraintTop_toBottomOf="@+id/contenedor" />
-
-     <androidx.constraintlayout.widget.Guideline
-         android:id="@+id/guideline7"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:orientation="vertical"
-         app:layout_constraintGuide_begin="262dp" />
- </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="262dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

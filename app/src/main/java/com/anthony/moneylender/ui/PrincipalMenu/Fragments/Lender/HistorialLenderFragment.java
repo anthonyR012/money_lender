@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.anthony.moneylender.R;
 import com.anthony.moneylender.dataAccessRoom.DataBaseMoney;
@@ -44,6 +45,7 @@ public class HistorialLenderFragment extends Fragment implements androidx.appcom
     private FragmentHistorialBinding binding;
     private HistorialLenderModel model;
     private DataBaseMoney db;
+    private AdapterRecycleLender adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,7 +84,7 @@ public class HistorialLenderFragment extends Fragment implements androidx.appcom
             public void onChanged(List<PrestamosClientes> prestamosClientes) {
                 //CREAMOS LISTA CON LOS DATOS NECESARIOS DE LA VISTA HOLDER
                 List<OrderDataImplement> listClientPrestamo = new ArrayList<>();
-
+                //ORGANIZAMOS ESAS DATOS POR MEDIO DE UN OBJETO DE TIPO ORDERDATAIMPLEMENT
                 for (int i = 0;i< prestamosClientes.size();i++){
                     for (int e =0;e<prestamosClientes.get(i).clientes.size();e++){
                     OrderDataImplement implement = new OrderDataImplement
@@ -100,7 +102,7 @@ public class HistorialLenderFragment extends Fragment implements androidx.appcom
                 }
 
 //                PASAMOS LISTA POR PARAMETRO AL ADAPTADOR
-                        AdapterRecycleLender adapter = new AdapterRecycleLender(listClientPrestamo);
+                        adapter = new AdapterRecycleLender(listClientPrestamo);
                         binding.recycleItemLenders.setAdapter(adapter);
 
 
@@ -129,22 +131,21 @@ public class HistorialLenderFragment extends Fragment implements androidx.appcom
             }
         });
 
+        binding.searchLender.setOnQueryTextListener(this);
+
     }
 
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        searchLenderForUser();
+
         return false;
     }
 
-    private void searchLenderForUser() {
-
-
-    }
 
     @Override
     public boolean onQueryTextChange(String newText) {
+        adapter.filtrado(newText);
         return false;
     }
 }
