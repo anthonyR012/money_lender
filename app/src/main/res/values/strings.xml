@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">MoneyLender</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Ingresar</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">Hola Bienvenido, Aqui puedes ingresar</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="id_invalid">"Id invalido"</string>
+    <string name="id_exist">"Id no disponible"</string>
+    <string name="email_exist">"Email no disponible"</string>
+    <string name="nombre_invalid">"Nombre obligatorio"</string>
+    <string name="apellido_invalid">"Apellido obligatorio"</string>
+    <string name="email_invalid">"Email invalido"</string>
+    <string name="pass_invalid">"Constraseña invalida"</string>
+    <string name="valid_action">"completo"</string>
+    <string name="complete_Insert">"Registro completo"</string>
+    <!-- REFERENCIADO A INICIO LOGUEADO-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_crear">Registrar cliente</string>
+    <string name="btn_administra">Administra pagos</string>
+    <string name="btn_perfil">Perfil</string>
+    <string name="btn_prestamo">Atribuir prestamo</string>
+    <string name="btn_acerca">Acerca de</string>
+    <string name="btn_hitorial">Historial Prestamos</string>
+    <string name="SingUp">Registrarme</string>
+    <string name="forgot">Olvide mi contraseña</string>
+    <string name="alReady">Ya tienes una cuenta?</string>
+    <!--EMAIL, PASS SEND EMAIL FOR USER-->
+    <string name="email_remitente">rubionn27@gmail.com</string>
+    <string name="pass_remitente">rubion.n</string>
+    <string name="update_complete">Actualizacion completa</string>
+    <string name="accept_dialog">OK</string>
+    <!--   MENU STRINGS REFERENCES-->
+    <string name="title_register_user">REGISTRA TUS \n CLIENTES</string>
+    <string name="btn_save_client">Guardar Cliente</string>
+    <string name="btn_update_administrator">Actualizar Datos</string>
+    <string name="title_preferences">PREFERENCIAS</string>
+    <string name="btn_delete_account">Restablecer \nCambios</string>
+    <string name="btn_save_account">Guardar \nCambios</string>
+    <string name="title_historial_lender">HISTORIAL PRESTAMO</string>
+    <string name="hint_search_lender">Buscar Prestamo</string>
+    <string name="title_detail_lender">DETALLE PRESTAMO</string>
+    <string name="title_hello_administrator">HISTORIAL CLIENTES</string>
+    <string name="title_detail_client">DETALLE CLIENTE</string>
+    <string name="btn_update_lender">Actualizar Prestamo</string>
+    <string name="title_register_lender">REGISTRAR NUEVO \nPRESTAMO</string>
+    <string name="hint_search_user">Buscar Cliente</string>
+    <string name="btn_accept">Aceptar</string>
+    <string name="url_facce">https://www.facebook.com/antony.rubio.9822</string>
+    <string name="url_wpp">https://wa.link/4psqtq</string>
+    <string name="url_insta">https://www.instagram.com/rubio203ar/</string>
+
+
+</resources>
