@@ -38,28 +38,16 @@
         app:layout_constraintTop_toBottomOf="@+id/titleAdministra" />
 
 
-    <TextView
-        android:id="@+id/Listacliente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/primary_text"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:text="Lista Cliente"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_client" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleItemClients"
         android:layout_width="0dp"
+        android:layout_marginTop="15dp"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Listacliente"
+        app:layout_constraintTop_toBottomOf="@+id/search_client"
         tools:listitem="@layout/item_client" />
 
     <FrameLayout

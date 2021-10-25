@@ -95,6 +95,7 @@ public class ForguetViewModel extends ViewModel {
         return countEmail;
     }
 
+
     public void updatePass(DataBaseMoney db,String correo,String pass){
 
             updateNewPrivatePass(db,correo,pass);

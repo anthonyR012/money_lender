@@ -108,7 +108,10 @@ public class HistorialClientFragment extends Fragment implements androidx.appcom
     @Override
     public boolean onQueryTextChange(String newText) {
         //CADA QUE SE CAMBIE EL TEXTO, SE EJECUTA ESTA FUNCION QUE FILTRA EL CONTENIDO DEL RECYCLE
-        adapter.filtrado(newText);
+        if(newText!=null && adapter!=null){
+            //SE CONDICIONA POR QUE ES EJECUTADO CUANDO CAMBIA ESTADO DE ACTIVIDAD AL ONDESTROY
+            adapter.filtrado(newText);
+        }
         return false;
     }
 }

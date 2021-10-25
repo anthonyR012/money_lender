@@ -145,7 +145,10 @@ public class HistorialLenderFragment extends Fragment implements androidx.appcom
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        adapter.filtrado(newText);
+        if(newText!=null && adapter!=null){
+            adapter.filtrado(newText);
+        }
+
         return false;
     }
 }
